@@ -1,0 +1,31 @@
+.btn-bs-file{
+    position:relative;
+}
+.btn-bs-file input[type="file"]{
+    position: absolute;
+    top: -9999999;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    width:0;
+    height:0;
+    outline: none;
+    cursor: inherit;
+}
+
+.bnt-round{
+    border-radius: 30rem!important;
+    padding: 2px 20px;
+}
+
+.btn-border-green{
+    border : 1px solid
+}
+
+.select-custom{
+    background: transparent;
+    border : 1px solid
+}
+
+.select-round{
+    border-radius: 50px;
+}
