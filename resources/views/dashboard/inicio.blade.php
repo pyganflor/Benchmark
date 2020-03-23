@@ -6,24 +6,28 @@
 
 @section('contenido')
     <div class="col-12">
-        <div class="pl-2 pr-2">
-            <buttom class="btn btn-sm btn-success bnt-round">
-                <i class="far fa-file-alt"></i> Importar archivo
-            </buttom>
-        </div>
-        <div class="pl-2 pr-2">
-            <buttom class="btn btn-sm btn-success bnt-round">
-                <i class="fas fa-plus-circle"></i> Añadir datos
-            </buttom>
+        <div class="input-group">
+            <div class="input-group-append">
+                <buttom class="btn btn-sm btn-green-custom bnt-round m-1" style="cursor: pointer">
+                    <i class="far fa-file-alt"></i> Importar archivo
+                </buttom>
+                <buttom class="btn btn-sm btn-green-custom bnt-round m-1" style="cursor: pointer">
+                    <i class="fas fa-plus-circle"></i> Añadir datos
+                </buttom>
+            </div>
         </div>
     </div>
-    <div class="card-body">
+    <div class="col-12">
         <div class="card-header">
             <h3 class="card-title">
                 <div class="input-group">
-                    <span class="input-group-prepend"> <i class="fas fa-seedling"></i></span>
-                    <select class="select-custom form-control form-control-sm select-round">
-                        <option value="">Seleccione</option>
+                    <div class="input-group-prepend">
+                        <span class="input-group-text bg-silver-dark-custom all-round icon-select-custom">
+                            <i class="fas fa-seedling"></i>
+                        </span>
+                    </div>
+                    <select class="select-custom form-control form-control-sm all-round font-weight-bold" style=" width: 295px;">
+                        <option value="">Variedad</option>
                     </select>
                 </div>
             </h3>
@@ -38,58 +42,881 @@
             </div>
         </div>
         <!-- /.card-header -->
-        <div class="card-body p-0 ">
-            <table class="table table-bordered">
+        <div class="card-body p-0 w-100 ">
+            <table id="example1" class="table table-bordered ">
                 <thead>
                 <tr>
-                    <th style="width: 10px">#</th>
-                    <th>Task</th>
-                    <th>Progress</th>
-                    <th style="width: 40px">Label</th>
+                    <th>Indicadores</th>
+                    <th>Semana 1</th>
+                    <th>Semana 2</th>
+                    <th>Semana 3</th>
+                    <th>Semana 4</th>
+                    <th>Semana 5</th>
+                    <th>Semana 6</th>
+                    <th>Semana 7</th>
+                    <th>Semana 8</th>
+                    <th>Semana 9</th>
                 </tr>
                 </thead>
                 <tbody class="bg-gradient-white">
                 <tr>
-                    <td>1.</td>
-                    <td>Update software</td>
                     <td>
-                        <div class="progress progress-xs">
-                            <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                        Ventas totales
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
                         </div>
                     </td>
-                    <td><span class="badge bg-danger">55%</span></td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
-                    <td>2.</td>
-                    <td>Clean database</td>
-                    <td>
-                        <div class="progress progress-xs">
-                            <div class="progress-bar bg-warning" style="width: 70%"></div>
+                    <td>Área</td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
                         </div>
                     </td>
-                    <td><span class="badge bg-warning">70%</span></td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
-                    <td>3.</td>
-                    <td>Cron job running</td>
-                    <td>
-                        <div class="progress progress-xs progress-striped active">
-                            <div class="progress-bar bg-primary" style="width: 30%"></div>
+                    <td>Tallos</td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
                         </div>
                     </td>
-                    <td><span class="badge bg-primary">30%</span></td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
-                    <td>4.</td>
-                    <td>Fix and squish bugs</td>
-                    <td>
-                        <div class="progress progress-xs progress-striped active">
-                            <div class="progress-bar bg-success" style="width: 90%"></div>
+                    <td>Cosechados</td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
                         </div>
                     </td>
-                    <td><span class="badge bg-success">90%</span></td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Cajas</td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Exportados</td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Calibre</td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
+                    <td class="text-center bg-indicadores-custom">
+                        <div class="width-div-span">
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                                25.56%
+                            </span>
+                        </div>
+                    </td>
                 </tr>
                 </tbody>
+                <tfoot>
+                <tr>
+                    <th>Indicadores</th>
+                    <th>Semana 1</th>
+                    <th>Semana 2</th>
+                    <th>Semana 3</th>
+                    <th>Semana 4</th>
+                    <th>Semana 5</th>
+                    <th >Semana 6</th>
+                    <th >Semana 7</th>
+                    <th >Semana 8</th>
+                    <th >Semana 9</th>
+
+                </tr>
+                </tfoot>
             </table>
         </div>
         <!-- /.card-body -->

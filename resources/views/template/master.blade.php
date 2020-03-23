@@ -11,8 +11,11 @@
     <link rel="stylesheet" href="{{asset('fontawesome/css/all.min.css')}}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('css/adminlte.min.css')}}">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="{{asset('css/dataTables.bootstrap4.css')}}">
 
-    <!-- Custom Css -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.3.0/css/fixedColumns.dataTables.min.css">
+
     <link rel="stylesheet" href="{{asset('css/custom.css')}}">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
@@ -58,6 +61,11 @@
 <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('js/adminlte.min.js')}}"></script>
+
+<!-- DataTables -->
+<script src="{{asset('js/jquery.dataTables.js')}}"></script>
+<script src="{{asset('js/dataTables.bootstrap4.js')}}"></script>
+<script src="https://cdn.datatables.net/fixedcolumns/3.3.0/js/dataTables.fixedColumns.min.js"></script>
 <!-- Custom js -->
 @yield('custom_script')
 </body>

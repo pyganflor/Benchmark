@@ -17,15 +17,127 @@
     padding: 2px 20px;
 }
 
-.btn-border-green{
-    border : 1px solid
-}
 
 .select-custom{
     background: transparent;
-    border : 1px solid
+    border : 1px solid;
+    padding-left: 55px;
 }
 
-.select-round{
-    border-radius: 50px;
+.btn-green-custom{
+    background: #00b388;
+    color:white;
+    border: 1px solid #00b388;
+}
+
+.bg-silver-dark-custom{
+    background: #5a7177;
+    color:white;
+}
+
+.btn-green-custom:hover{
+    background: transparent;
+    color: #00b388;
+    transition: all ease 0.4s
+}
+
+
+.all-round{
+    border-radius: 50px!important;
+}
+
+.icon-select-custom{
+    position: absolute;
+    z-index: 999999;
+    top: -0.08rem;
+    padding: 8px 15px;
+    left: -4px;
+}
+
+.indicador1-custom{
+    background: transparent;
+    color:#00b388;
+    border: 1px solid #00b388;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+}
+
+.indicador2-custom{
+    background: transparent;
+    color:#0083b3;
+    border: 1px solid #0083b3;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+}
+
+.indicador3-custom{
+    border:1px solid #7500b3;
+    color:#7500b3;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+}
+
+.indicador1-custom:hover{
+    background: #00b388;
+    color:white;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    transition : all ease .5s;
+    cursor: pointer
+}
+.indicador2-custom:hover{
+    background: #0083b3;
+    color:white;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    transition : all ease .5s;
+    cursor: pointer
+}
+.indicador3-custom:hover{
+    background: #7500b3;
+    color:white;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    transition : all ease .5s;
+    cursor: pointer
+}
+
+.bg-indicadores-custom:hover{
+    background: #e5f7f3;
+    border: 1px solid #00b388!important;
+    border-bottom: 2px solid #00b388;
+    transition : all ease .4s;
+}
+
+td{
+    vertical-align: middle!important;
+    padding: 0px;
+}
+
+.width-div-span{
+    width: 200px;
+}
+
+.DTFC_LeftBodyWrapper{
+    top: -14px!important;
+}
+
+.DTFC_LeftFootWrapper{
+    top: -5px!important;
+}
+
+.DTFC_LeftBodyLiner{
+    height: 411px!important;
+    max-height: 411px!important;
+}
+
+.DTFC_LeftBodyWrapper{
+    height: 411px!important;
+    max-height: 411px!important;
 }

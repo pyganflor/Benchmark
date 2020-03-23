@@ -4,7 +4,7 @@
         <a href="/" class="navbar-brand">
             <img src="{{asset('img/logo_yura_brenchmark.png')}}" alt="Brenchmark Logo" class="brand-image pr-2 border-right"
                  style="opacity: .8">
-            <span class="brand-text font-weight-bold">Brenchmark</span>
+            <span class="brand-text font-weight-bold">Benchmark</span>
         </a>
 
         <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,11 +22,10 @@
                 </li>
 
             </ul>
-
         </div>
 
         <!-- Right navbar links -->
-        <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
+        {{--<ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
             <li class="nav-item dropdown">
                 <a class="nav-link" data-toggle="dropdown" href="#">
                     <i class="fas fa-comments"></i>
@@ -84,7 +83,7 @@
                     <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
                 </div>
             </li>
-        </ul>
+        </ul>--}}
     </div>
 </nav>
 <!-- /.navbar -->
