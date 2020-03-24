@@ -1,6 +1,7 @@
 .btn-bs-file{
     position:relative;
 }
+
 .btn-bs-file input[type="file"]{
     position: absolute;
     top: -9999999;
@@ -16,7 +17,6 @@
     border-radius: 30rem!important;
     padding: 2px 20px;
 }
-
 
 .select-custom{
     background: transparent;
@@ -40,7 +40,6 @@
     color: #00b388;
     transition: all ease 0.4s
 }
-
 
 .all-round{
     border-radius: 50px!important;
@@ -89,6 +88,7 @@
     transition : all ease .5s;
     cursor: pointer
 }
+
 .indicador2-custom:hover{
     background: #0083b3;
     color:white;
@@ -98,6 +98,7 @@
     transition : all ease .5s;
     cursor: pointer
 }
+
 .indicador3-custom:hover{
     background: #7500b3;
     color:white;
@@ -140,4 +141,123 @@ td{
 .DTFC_LeftBodyWrapper{
     height: 411px!important;
     max-height: 411px!important;
+}
+
+.leyeda-datos{
+    position: relative;
+    display: block;
+    padding: .5rem .75rem;
+    margin-bottom: -1px;
+    background-color: trasnparent;
+}
+
+.leyenda-finca{
+    width:15px;
+    height: 15px;
+    background: #00b388;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    position: relative;
+    top: 5px;
+    right: 5px;
+}
+
+.leyenda-promedio{
+    width:15px;
+    height: 15px;
+    background: #0083b3;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    position: relative;
+    top: 5px;
+    right: 5px;
+}
+
+.leyenda-mejor{
+    width:15px;
+    height: 15px;
+    background: #7500b3;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    position: relative;
+    top: 5px;
+    right: 5px;
+}
+
+.title-modal-in-view{
+    font-size: 18px!important;
+    padding-bottom: 10px!important;
+    border-bottom : 1px solid #dee2e6!important
+}
+
+.jconfirm-buttons{
+    width: 100%;
+    text-align: center;
+}
+
+.jconfirm-box{
+    border-radius: 20px!important;
+}
+
+.fa-times{
+    font-size:14px!important;
+}
+
+.input-datos-manual-custom{
+    border-radius:30px!important
+}
+
+.tools-leyenda{
+    padding-right: 10px;
+}
+
+.btn-login{
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    background: #00b388;
+    color: #ffffff;
+    width: 70%;
+    margin: 0 auto
+}
+
+.btn-login:hover{
+    background: transparent;
+    border: 1px solid #00b388!important;
+    color: #00b388;
+}
+
+.restaurar-contrasena-custom{
+    color:#00b388;
+}
+
+.login-page{
+    background-image:url("/img/fondo-pasto.jpg");
+    background-position: center;
+}
+
+.img-size-100{
+    width:100px
+}
+
+.g-recaptcha{
+    width: 320px!important;
+}
+
+@media(max-width:767px){
+    .tools-leyenda{
+        width:100%!important;
+        margin-top:10px!important;
+        padding-right: 0px;
+        font-size: 14px;
+    }
+
+    .leyenda-mejor,.leyenda-finca,.leyenda-promedio {
+        width: 13px;
+        height: 13px;
+        top: 3px;
+    }
 }

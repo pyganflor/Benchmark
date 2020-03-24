@@ -10,7 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+    Route::get('login', 'LoginController@login');
 
-Route::get('/', function () {
-    return view('dashboard.inicio');
-});
+    include_once('rutas/benchmark.php');

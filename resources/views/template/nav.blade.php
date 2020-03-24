@@ -18,7 +18,7 @@
                     <a href="#" class="nav-link">Dasboard</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Brenchmark</a>
+                    <a href="{{url('benchmark')}}" class="nav-link">Benchmark</a>
                 </li>
 
             </ul>

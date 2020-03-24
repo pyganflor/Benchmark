@@ -8,10 +8,12 @@
     <div class="col-12">
         <div class="input-group">
             <div class="input-group-append">
-                <buttom class="btn btn-sm btn-green-custom bnt-round m-1" style="cursor: pointer">
+                <buttom class="btn btn-sm btn-green-custom bnt-round m-1"
+                        id="importar_archivo" style="cursor: pointer">
                     <i class="far fa-file-alt"></i> Importar archivo
                 </buttom>
-                <buttom class="btn btn-sm btn-green-custom bnt-round m-1" style="cursor: pointer">
+                <buttom class="btn btn-sm btn-green-custom bnt-round m-1"
+                        id="carga_datos_manual" style="cursor: pointer">
                     <i class="fas fa-plus-circle"></i> Añadir datos
                 </buttom>
             </div>
@@ -31,13 +33,36 @@
                     </select>
                 </div>
             </h3>
-            <div class="card-tools" style="padding-right: 10px;">
-                <ul class="pagination pagination-sm float-right">
-                    <li class="page-item"><a class="page-link" href="#">«</a></li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">»</a></li>
+            <div class="card-tools tools-leyenda">
+                <ul class="list-group list-group-horizontal list-group-horizontal-sm">
+                    <li class="leyeda-datos" style="border-right: 1px solid #dee2e6">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                Leyenda
+                            </div>
+                        </div>
+                    </li>
+                    <li class="leyeda-datos">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="leyenda-finca"></div> Finca
+                            </div>
+                        </div>
+                    </li>
+                    <li class="leyeda-datos">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="leyenda-promedio"></div> Promedio
+                            </div>
+                        </div>
+                    </li>
+                    <li class="leyeda-datos">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="leyenda-mejor"></div> El mejor
+                            </div>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -924,5 +949,5 @@
 @endsection
 
 @section('custom_script')
-    @include('dashboard.script')
+    @include('benchmark.script')
 @endsection
