@@ -24,10 +24,13 @@ $(function(){
             } else {
                 error_request('Error desconcido: ' + jqXHR.responseText);
             }
-
         }
     });
 });
+
+function load(show=true){
+
+}
 
 function error_request(msj){
     content = "<div class='alert alert-danger w-100 overflow-auto' role='alert'>"
@@ -70,7 +73,7 @@ function load_view_in_modal(data,f){
                 self.setContent(response);
                 self.setTitle(data.title);
             }).fail(function(){
-                self.setContent('Hubo un error en ka petición');
+                self.setContent('Hubo un error en la petición');
             });
         },
         buttons: {
@@ -96,4 +99,19 @@ function load_view_in_modal(data,f){
             },
         }
     });
+}
+
+function load_view(data){
+    load();
+    $.ajax({
+        url: data.url,
+        type: data.type,
+        data : data.datos,
+        success: function(response){
+            $("#"+data.id).html(response);
+        }
+    }).always(function(){
+        load(false);
+    });
+
 }

@@ -23,32 +23,33 @@
 <body class="hold-transition login-page">
 <div class="login-box">
     <!-- /.login-logo -->
-    <div class="card">
+    <div class="card" style="border-radius:60px; background-color: #ffffffbf;">
         <div class="card-body login-card-body">
             <div class="login-logo">
                 <img src="{{url('img/logo_yura_brenchmark.png')}}" class="img-size-100" alt="logo benchmark">
             </div>
 
-            <p class="login-box-msg restaurar-contrasena-custom mb-0 pb-0">Hola! Bienvenido a benchmark</p>
+            <p class="login-box-msg restaurar-contrasena-custom mb-0 pb-0 font-weight-bold">Hola! Bienvenido a benchmark</p>
             <p class="login-box-msg">Inicia sesión:</p>
 
             <form action="" method="post">
                 {{@csrf_field()}}
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Usuario">
-                    <div class="input-group-append">
-                        <div class="input-group-text">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text  fa-login">
                             <span class="fas fa-user-circle"></span>
                         </div>
                     </div>
+                    <input type="text" class="form-control" placeholder="Usuario">
+
                 </div>
                 <div class="input-group mb-3">
-                    <input type="password" class="form-control" placeholder="Contraseña">
-                    <div class="input-group-append">
-                        <div class="input-group-text">
-                            <span class="fas fa-lock"></span>
+                    <div class="input-group-prepend">
+                        <div class="input-group-text fa-login">
+                            <span class="fas fa-lock "></span>
                         </div>
                     </div>
+                    <input type="password" class="form-control" placeholder="Contraseña">
                 </div>
                 <div class="row mb-4 ml-0 mr-0 ">
                     <div class="text-center">
@@ -66,7 +67,7 @@
                     <!-- /.col -->
                 </div>
             </form>
-            <p class="m-3">
+            <p class="m-3 text-center">
                 <a href="#" class="restaurar-contrasena-custom">
                     <i class="fas fa-lock"></i> Olvidé mi contraseña
                 </a>

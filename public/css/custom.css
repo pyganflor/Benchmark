@@ -228,6 +228,8 @@ td{
     background: transparent;
     border: 1px solid #00b388!important;
     color: #00b388;
+    transition : all ease .4s
+
 }
 
 .restaurar-contrasena-custom{
@@ -235,7 +237,7 @@ td{
 }
 
 .login-page{
-    background-image:url("/img/fondo-pasto.jpg");
+    background-image:url("/img/fondo-pasto.png");
     background-position: center;
 }
 
@@ -243,8 +245,74 @@ td{
     width:100px
 }
 
-.g-recaptcha{
+div.g-recaptcha div{
     width: 320px!important;
+}
+
+.login-card-body{
+    border-radius: 60px;
+}
+
+.register-card-body{
+    background: transparente!important;
+}
+
+.login-card-body{
+    background: #ffffffcf;
+}
+
+.fa-login{
+    background: white!important;
+    border-radius:0
+}
+
+.card-indicadores{
+    box-shadow: 0px 2px 6px #00000022;
+    border: 1px solid #DFE3E6;
+    border-radius: 10px;
+    opacity: 1;
+}
+
+.btn-dashboard{
+    background: transparent;
+    border: 1px solid #00b388!important;
+    color: #00b388;
+    border-radius : 30px;
+    padding: 3px 25px;
+}
+
+.btn-dashboard:hover{
+    background: #00b388;
+    color: #ffffff;
+    transition : all ease .4s
+}
+
+.text-green-dashboard{
+    color :#00b388
+}
+
+.text-red-dashboard{
+    color :#D01C62
+}
+
+.footer-card-dashboard{
+    background: #00b388;
+    color: #ffffff;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    text-align: center;
+    height: 35px;
+    padding: .3rem 1.25rem!important;
+}
+
+.footer-card-dashboard:hover{
+    background: #5A7177;
+    transition : all ease .5s;
+    cursor: pointer
+}
+
+.text-orange-dashboard{
+    color:#EF6E11
 }
 
 @media(max-width:767px){

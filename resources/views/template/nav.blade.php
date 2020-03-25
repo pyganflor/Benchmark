@@ -15,7 +15,7 @@
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Dasboard</a>
+                    <a href="{{url('/')}}" class="nav-link">Dasboard</a>
                 </li>
                 <li class="nav-item">
                     <a href="{{url('benchmark')}}" class="nav-link">Benchmark</a>
@@ -24,18 +24,16 @@
             </ul>
         </div>
 
-        <!-- Right navbar links -->
-        {{--<ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
+        <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
             <li class="nav-item dropdown">
                 <a class="nav-link" data-toggle="dropdown" href="#">
-                    <i class="fas fa-comments"></i>
-                    <span class="badge badge-danger navbar-badge">3</span>
+                    <i class="fas fa-bell"></i>
+                    <span class="badge btn-green-custom navbar-badge">0</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                     <a href="#" class="dropdown-item">
                         <!-- Message Start -->
                         <div class="media">
-                            <img src="../../dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
                             <div class="media-body">
                                 <h3 class="dropdown-item-title">
                                     Brad Diesel
@@ -48,42 +46,27 @@
                         <!-- Message End -->
                     </a>
                     <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">
-                        <!-- Message Start -->
-                        <div class="media">
-                            <img src="../../dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                            <div class="media-body">
-                                <h3 class="dropdown-item-title">
-                                    John Pierce
-                                    <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                                </h3>
-                                <p class="text-sm">I got your message bro</p>
-                                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                            </div>
-                        </div>
-                        <!-- Message End -->
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">
-                        <!-- Message Start -->
-                        <div class="media">
-                            <img src="../../dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                            <div class="media-body">
-                                <h3 class="dropdown-item-title">
-                                    Nora Silvester
-                                    <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                                </h3>
-                                <p class="text-sm">The subject goes here</p>
-                                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                            </div>
-                        </div>
-                        <!-- Message End -->
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+
                 </div>
             </li>
-        </ul>--}}
+            <li class="nav-item" style="border-left:1px solid #dee2e6">
+                <span class="nav-link" style="padding: 3px 10px;line-height: 1;">
+                    <b class="text-green-dashboard">Nombre apellido</b><br />
+                    <small>Administrador</small>
+                </span>
+            </li>
+            <li class="nav-item dropdown" style="border-left:#dee2e6">
+                <a href="#" class="nav-link" data-toggle="dropdown">
+                    <img src="{{asset('img/user.png')}}" class="img-circle" style="width:25px"> <i class="fas fa-caret-down"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+                    </a>
+                </div>
+            </li>
+        </ul>
+
     </div>
 </nav>
 <!-- /.navbar -->
