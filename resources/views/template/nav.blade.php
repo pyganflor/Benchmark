@@ -2,15 +2,13 @@
 <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
     <div class="container">
         <a href="/" class="navbar-brand">
-            <img src="{{asset('img/logo_yura_brenchmark.png')}}" alt="Brenchmark Logo" class="brand-image pr-2 border-right"
-                 style="opacity: .8">
-            <span class="brand-text font-weight-bold">Benchmark</span>
+            <img src="{{asset('img/logo_yura_brenchmark.png')}}" alt="Brenchmark Logo"
+                 class="brand-image pr-1 border-right" style="opacity: .8">
         </a>
-
-        <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse order-3" id="navbarCollapse">
             <!-- Left navbar links -->
             <ul class="navbar-nav">
@@ -20,10 +18,11 @@
                 <li class="nav-item">
                     <a href="{{url('benchmark')}}" class="nav-link">Benchmark</a>
                 </li>
-
+                <li class="nav-item">
+                    <a href="{{url('admin_usuarios')}}" class="nav-link">Administración de usuarios</a>
+                </li>
             </ul>
         </div>
-
         <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
             <li class="nav-item dropdown">
                 <a class="nav-link" data-toggle="dropdown" href="#">

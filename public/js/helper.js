@@ -1,5 +1,4 @@
 $(function(){
-
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -32,10 +31,10 @@ function load(show=true){
 
 }
 
-function error_request(msj){
+function error_request(msg){
     content = "<div class='alert alert-danger w-100 overflow-auto' role='alert'>"
-        + msj +
-        "</div>";
+                  + msg +
+              "</div>";
 
     title = '<span class="text-danger">Hubo un error en la petición realizada al servidor</span>';
 
@@ -113,5 +112,36 @@ function load_view(data){
     }).always(function(){
         load(false);
     });
+}
 
+function request_ajax(data,f){
+    load();
+    $.ajax({
+        url: data.url,
+        type: data.type,
+        data : data.datos,
+        success: function(response){
+           if(response.success){
+               content = "<div class='alert alert-success w-100 overflow-auto' role='alert'> "+response.msg+"</div>";
+               title = 'La accion se ha realizado con éxito';
+               $.alert({
+                   title: title,
+                   content: content,
+                   icon: 'fas fa-check',
+                   type: 'green',
+                   titleClass : 'text-success',
+                   theme: 'light',
+                   columnClass: 'col-md-6',
+                   onClose: function () {
+                       if(f!=undefined)
+                           f();
+                   },
+               });
+           }else{
+               error_request(response.msg);
+           }
+        }
+    }).always(function(){
+        load(false);
+    });
 }

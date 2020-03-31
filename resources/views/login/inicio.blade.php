@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 3 | Log in</title>
+    <title>Benchmark | Log in</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -32,32 +32,45 @@
             <p class="login-box-msg restaurar-contrasena-custom mb-0 pb-0 font-weight-bold">Hola! Bienvenido a benchmark</p>
             <p class="login-box-msg">Inicia sesión:</p>
 
-            <form action="" method="post">
+            <form action="{{url('login/acceder')}}" method="post">
                 {{@csrf_field()}}
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text  fa-login">
-                            <span class="fas fa-user-circle"></span>
-                        </div>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Usuario">
 
-                </div>
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text fa-login">
-                            <span class="fas fa-lock "></span>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend {{$errors->has('usuario') ? 'border border-danger' :'' }}">
+                            <div class="input-group-text fa-login border-silver" style="border-radius:0;">
+                                <span class="fas fa-user-circle {{$errors->has('usuario') ? 'text-red' :'' }}"></span>
+                            </div>
+                        </div>
+                        <input class="form-control {{$errors->has('usuario') ? 'border border-danger' :'' }}"
+                               placeholder="Usuario" type="text" name="usuario" value="{{old('usuario')}}">
+                    </div>
+                    @if ($errors->has('usuario'))
+                        <div class="text-red mb-1">
+                            <i class="far fa-times-circle"></i> {{$errors->first('usuario')}}
+                        </div>
+                    @endif
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend {{$errors->has('contrasena') ? 'border border-danger' :'' }}">
+                            <div class="input-group-text fa-login border-silver" style="border-radius:0">
+                                <span class="fas fa-lock  {{$errors->has('contrasena') ? 'text-red' :'' }}"></span>
+                            </div>
+                        </div>
+                        <input class="form-control {{$errors->has('contrasena') ? 'border border-danger' :'' }}"
+                                name="contrasena" placeholder="Contraseña" type="password">
+                    </div>
+                    @if ($errors->has('contrasena'))
+                        <div class="text-red mb-1">
+                            <i class="far fa-times-circle"></i> {{$errors->first('contrasena')}}
+                        </div>
+                    @endif
+                    <div class="row mb-4 ml-0 mr-0 ">
+                        <div class="text-center">
+                            {!! NoCaptcha::renderJs() !!}
+                            {!! NoCaptcha::display() !!}
+                            <span class="text-danger">{{ $errors->first('g-recaptcha-response') }}</span>
                         </div>
                     </div>
-                    <input type="password" class="form-control" placeholder="Contraseña">
-                </div>
-                <div class="row mb-4 ml-0 mr-0 ">
-                    <div class="text-center">
-                        {!! NoCaptcha::renderJs() !!}
-                        {!! NoCaptcha::display() !!}
-                        <span class="text-danger">{{ $errors->first('g-recaptcha-response') }}</span>
-                    </div>
-                </div>
+
                 <div class="row">
                     <div class="col-12">
                         <button type="submit" class="btn btn-login btn-block">

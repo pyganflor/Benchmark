@@ -18,6 +18,10 @@
     padding: 2px 20px;
 }
 
+.border-silver{
+    border:1px solid #ced4da
+}
+
 .select-custom{
     background: transparent;
     border : 1px solid;
