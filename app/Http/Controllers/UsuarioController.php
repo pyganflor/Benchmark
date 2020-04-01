@@ -7,6 +7,7 @@ use App\Mail\EnviarAccesos;
 use App\Modelos\Usuario;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\LoginController;
 use Validator;
 
 class UsuarioController extends Controller
@@ -48,7 +49,7 @@ class UsuarioController extends Controller
                     $success = true;
                     $modelUSuario = $usuario = Usuario::all()->last();
                     Mail::to($request->correo)->send(new EnviarAccesos($user,$passRandom));
-                    $msg = '<div class="aler alert-success w-100 text-center">Se ha enviado el correo con los e-mail con los accesos al correo ingresado</div>';
+                    $msg = '<div class="alert alert-success w-100 text-center">Se ha enviado el correo con los e-mail con los accesos al correo ingresado</div>';
                 }
 
             }catch(\Exception $e){
@@ -57,12 +58,70 @@ class UsuarioController extends Controller
                 if($success && isset($modelUSuario))
                     Usuario::Destroy($modelUSuario->id_usuario);
 
-                $msg = '<div class="aler alert-danger w-100 text-center">Ha ocurrido un inconveniente al enviar el correo, se describe a continuación 
-                        <br/>'.$e->getMessage().'<br/> En la linea:'.$e->getLine().'<br/> del archivo: '.$e->getFile().' 
-                    </div>';
+                $msg = '<div class="alert alert-danger w-100 text-center">Ha ocurrido un inconveniente al enviar el correo, se describe a continuación 
+                            <br/>'.$e->getMessage().'<br/> En la linea:'.$e->getLine().'<br/> del archivo: '.$e->getFile().' 
+                        </div>';
 
             }
 
+        }else {
+            $success = false;
+            $errores = '';
+            foreach ($valida->errors()->all() as $mi_error) {
+                if ($errores == '') {
+                    $errores = '<li>' . $mi_error . '</li>';
+                } else {
+                    $errores .= '<li>' . $mi_error . '</li>';
+                }
+            }
+            $msg = '<div class="alert alert-danger">' .
+                '<p class="text-center">¡Por favor corrija los siguientes errores!</p>' .
+                '<ul>' .
+                $errores .
+                '</ul>' .
+                '</div>';
+        }
+        return [
+            'success' => $success,
+            'msg' => $msg
+        ];
+
+    }
+
+    public function actualziaAccesos(Request $request){
+
+        $valida = Validator::make($request->all(), [
+            'contrasena' => 'required|min:8|alpha_num',
+            'usuario' => 'required|min:7|max:7'
+        ], [
+            'contrasena.min' => 'la contraseña debe tener mínimo 8 caracteres',
+            'contrasena.max' => 'la contraseña no debe tener mas de 8 caracteres',
+            'contrasena.required' => 'Debe ingresar la contraseña',
+            'contrasena.alpha_num' => 'La contraseña debe ser alfa númerica',
+            'usuario.min' => 'El usuario debe tener mínimo 7 caracteres',
+            'usuario.max' => 'El usuario no debe tener mas de 7 caracteres',
+            'usuario.required' => 'Debe ingresar el usuario'
+        ]);
+
+        if (!$valida->fails()) {
+            try{
+                $usuario = Usuario::where('id_usuario',session('id_usuario'));
+                $usuario->update([
+                    'nombre' => $request->usuario,
+                    'contrasena' => Hash::make($request->contrasena)
+                ]);
+                $success = true;
+                $msg = '<div class="alert alert-success w-100 text-center">Los accesos se han actualizado exitosamente por los ingresados</div>';
+
+                $loginController = new LoginController;
+                $loginController->logout();
+
+            }catch(\Exception $e){
+                $success=false;
+                $msg = '<div class="alert alert-danger w-100 text-center">Ha ocurrido un inconveniente al actualizar los accesos, se describe a continuación 
+                        <br/>'.$e->getMessage().'<br/> En la linea:'.$e->getLine().'<br/> del archivo: '.$e->getFile().' 
+                    </div>';
+            }
         }else {
             $success = false;
             $errores = '';

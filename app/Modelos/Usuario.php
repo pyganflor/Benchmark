@@ -30,7 +30,6 @@ class Usuario extends Model
      * @var array
      */
     protected $hidden = [
-
         'id_usuario','fecha_registro'
     ];
 

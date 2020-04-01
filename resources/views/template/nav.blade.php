@@ -19,8 +19,8 @@
                     <a href="{{url('benchmark')}}" class="nav-link">Benchmark</a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{url('admin_usuarios')}}" class="nav-link">Administración de usuarios</a>
-                </li>
+                    <a href="{{url('admin_usuarios')}}" class="nav-link">Usuario</a>
+                   </li>
             </ul>
         </div>
         <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
@@ -50,8 +50,8 @@
             </li>
             <li class="nav-item" style="border-left:1px solid #dee2e6">
                 <span class="nav-link" style="padding: 3px 10px;line-height: 1;">
-                    <b class="text-green-dashboard">Nombre apellido</b><br />
-                    <small>Administrador</small>
+                    <b class="text-green-dashboard">{{session('nombre')}}</b><br />
+                    <small>{{session('rol')}}</small>
                 </span>
             </li>
             <li class="nav-item dropdown" style="border-left:#dee2e6">
@@ -59,7 +59,7 @@
                     <img src="{{asset('img/user.png')}}" class="img-circle" style="width:25px"> <i class="fas fa-caret-down"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                    <a href="#" class="dropdown-item">
+                    <a href="{{url('logout')}}" class="dropdown-item">
                         <i class="fas fa-sign-out-alt"></i> Cerrar sesión
                     </a>
                 </div>

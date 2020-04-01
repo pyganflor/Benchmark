@@ -45,7 +45,7 @@ function error_request(msg){
         type: 'red',
         titleClass : 'blue',
         theme: 'light',
-        columnClass: 'col-md-12',
+        columnClass: 'col-md-6',
         onClose: function () {
 
         },
@@ -144,4 +144,29 @@ function request_ajax(data,f){
     }).always(function(){
         load(false);
     });
+
+}
+
+function confirmar(content,f) {
+
+    $.confirm({
+        title: "<i class='fas fa-exclamation-triangle'></i> Confirmar",
+        content: content,
+        titleClass :'text-info',
+        buttons: {
+            Confirmar: {
+                text: 'Confirmar',
+                btnClass: 'btn btn-success', // class for the button
+                icon: 'far fa-save',
+                action: function(){
+                    if(f!=undefined)
+                        f();
+                }
+            },
+            Cancelar : function () {
+                $.alert('Acción cancelada!')
+            },
+        }
+    });
+
 }
