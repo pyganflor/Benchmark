@@ -9,7 +9,7 @@
     <div class="form-row">
 
     </div>
-    <div id="div_indicadores" class="w-100"></div>
+    <div id="div_indicadores"></div>
 
 @endsection
 @section('custom_script')

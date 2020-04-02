@@ -22,7 +22,7 @@
             }
         });
     });
-    
+
     $("#importar_archivo").click(function () {
         data = {
             url : '{{url('benchmark/upload_file')}}',
@@ -33,9 +33,9 @@
             iconTitle : 'fas fa-file-upload',
             datos :{},
         };
-        load_view_in_modal(data,function(){
+        load_form_in_modal(data,function(){
             upload_file();
-        });
+        },'#form-excel');
     });
 
 
@@ -49,9 +49,9 @@
             iconTitle : 'fas fa-edit',
             datos :{},
         };
-        load_view_in_modal(data,function(){
+        load_form_in_modal(data,function(){
             carga_datos_manual();
-        });
+        },'#datos-manuales');
     });
 
 
@@ -60,7 +60,7 @@
     }
 
     function carga_datos_manual(){
-        console.log("hola2");
+        console.log("hola2",);
     }
 
 </script>

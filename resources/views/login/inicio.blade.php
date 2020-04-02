@@ -31,46 +31,49 @@
 
             <p class="login-box-msg restaurar-contrasena-custom mb-0 pb-0 font-weight-bold">Hola! Bienvenido a benchmark</p>
             <p class="login-box-msg">Inicia sesión:</p>
-
+            @if (session('usuario-inactivo'))
+                <span class="text-red  mb-1">  <i class="far fa-times-circle"></i> {{ session('usuario-inactivo') }} </span>
+            @endif
             <form action="{{url('login/acceder')}}" method="post">
                 {{@csrf_field()}}
-
-                    <div class="input-group mb-2">
-                        <div class="input-group-prepend {{$errors->has('usuario') ? 'border border-danger' :'' }}">
-                            <div class="input-group-text fa-login border-silver" style="border-radius:0;">
-                                <span class="fas fa-user-circle {{$errors->has('usuario') ? 'text-red' :'' }}"></span>
-                            </div>
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend {{$errors->has('usuario') ? 'border border-danger' :'' }}">
+                        <div class="input-group-text fa-login border-silver" style="border-radius:0;">
+                            <span class="fas fa-user-circle {{$errors->has('usuario') ? 'text-red' :'' }}"></span>
                         </div>
-                        <input class="form-control {{$errors->has('usuario') ? 'border border-danger' :'' }}"
-                               placeholder="Usuario" type="text" name="usuario" value="{{old('usuario')}}">
                     </div>
-                    @if ($errors->has('usuario'))
-                        <div class="text-red mb-1">
-                            <i class="far fa-times-circle"></i> {{$errors->first('usuario')}}
-                        </div>
-                    @endif
-                    <div class="input-group mb-2">
-                        <div class="input-group-prepend {{$errors->has('contrasena') ? 'border border-danger' :'' }}">
-                            <div class="input-group-text fa-login border-silver" style="border-radius:0">
-                                <span class="fas fa-lock  {{$errors->has('contrasena') ? 'text-red' :'' }}"></span>
-                            </div>
-                        </div>
-                        <input class="form-control {{$errors->has('contrasena') ? 'border border-danger' :'' }}"
-                                name="contrasena" placeholder="Contraseña" type="password">
+                    <input class="form-control {{$errors->has('usuario') ? 'border border-danger' :'' }}"
+                           placeholder="Usuario" type="text" name="usuario" value="{{old('usuario')}}">
+                </div>
+                @if ($errors->has('usuario'))
+                    <div class="text-red mb-1">
+                        <i class="far fa-times-circle"></i> {{$errors->first('usuario')}}
                     </div>
-                    @if ($errors->has('contrasena'))
+                @endif
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend {{$errors->has('contrasena') ? 'border border-danger' :'' }}">
+                        <div class="input-group-text fa-login border-silver" style="border-radius:0">
+                            <span class="fas fa-lock  {{$errors->has('contrasena') ? 'text-red' :'' }}"></span>
+                        </div>
+                        </div>
+                    <input class="form-control {{$errors->has('contrasena') ? 'border border-danger' :'' }}"
+                           name="contrasena" placeholder="Contraseña" type="password">
+                </div>
+                @if (session('pass-fail'))
+                    <span class="text-red  mb-1">  <i class="far fa-times-circle"></i> {{ session('pass-fail') }} </span>
+                @endif
+                @if ($errors->has('contrasena'))
                         <div class="text-red mb-1">
                             <i class="far fa-times-circle"></i> {{$errors->first('contrasena')}}
                         </div>
                     @endif
-                    <div class="row mb-4 ml-0 mr-0 ">
+                <div class="row mb-4 ml-0 mr-0 ">
                         <div class="text-center">
                             {!! NoCaptcha::renderJs() !!}
                             {!! NoCaptcha::display() !!}
                             <span class="text-danger">{{ $errors->first('g-recaptcha-response') }}</span>
                         </div>
                     </div>
-
                 <div class="row">
                     <div class="col-12">
                         <button type="submit" class="btn btn-login btn-block">

@@ -22,6 +22,10 @@
     border:1px solid #ced4da
 }
 
+.error{
+    color:red
+}
+
 .select-custom{
     background: transparent;
     border : 1px solid;
@@ -37,6 +41,17 @@
 .bg-silver-dark-custom{
     background: #5a7177;
     color:white;
+}
+
+.bg-green-card-dashboard{
+    left: 10%;
+    border-radius: 50px;
+    background: #00B388;
+    color: #ffffff;
+    position: absolute;
+    width: 80%;
+    margin: 0 auto;
+    top: -15px;
 }
 
 .btn-green-custom:hover{
@@ -275,6 +290,31 @@ div.g-recaptcha div{
     border: 1px solid #DFE3E6;
     border-radius: 10px;
     opacity: 1;
+    color: #000000;
+}
+
+.numero-indicador{
+    font-size: 36px;
+}
+
+.card-indicadores:hover{
+    background: #04C0EF!important;
+    transition: all ease .4s;
+    color:#ffffff!important;
+    cursor:pointer;
+}
+
+.numero-indicador{
+    font-size: 36px;
+}
+
+
+.icon-select-dashboard {
+    position: absolute;
+    z-index: 999999;
+    top: -0.08rem;
+    padding: 3px 15px;
+    left: -4px;
 }
 
 .btn-dashboard{

@@ -34,62 +34,68 @@
         @if(session('id_rol') === 3)
             <div id="home" role="tabpanel" aria-labelledby="home-tab" class="tab-pane fade px-4 py-5 show active">
             <div class="row ">
-                <div class="col-md-9 col-xs-12 col-lg-6 col-sm-12 offset-md-3">
-                    <div class="input-group mb-3">
-                        <input type="email" class="form-control" placeholder="Escriba un correo electrónico válido"
-                               aria-describedby="basic-addon2" id="correo_usuario" required>
-                        <div class="input-group-append">
-                            <button class="btn btn-green-custom" type="button" title="Enviar correo" onclick="enviar_correo(null,'correo_usuario')" >
-                                <span class="d-none d-md-block d-lg-block"><i class="far fa-envelope"></i> Enviar correo</span>
-                                <span class="d-md-none d-lg-none"><i class="far fa-envelope"></i></span>
-                            </button>
-                        </div>
-                    </div>
-                    <small>
-                        <em><b>Nota:</b> Se creará un nuevo <b>Usuario</b> y se enviará un mail con los accesos al correo ingresado</em>
-                    </small>
-                </div>
-            </div>
-        </div>
-            <div id="user_admin" role="tabpanel" aria-labelledby="profile-tab" class="tab-pane fade px-4 py-5">
-                <div class="row ">
+                <form id="crear-user" class="w-100">
                     <div class="col-md-9 col-xs-12 col-lg-6 col-sm-12 offset-md-3">
                         <div class="input-group mb-3">
                             <input type="email" class="form-control" placeholder="Escriba un correo electrónico válido"
-                                   aria-describedby="basic-addon2" id="correo_administrador" required>
+                                   aria-describedby="basic-addon2" id="correo_usuario" required>
                             <div class="input-group-append">
-                                <button class="btn btn-green-custom" type="button" title="Enviar correo" onclick="enviar_correo(null,'correo_administrador')">
+                                <button class="btn btn-green-custom" type="button" title="Enviar correo" onclick="enviar_correo(null,'correo_usuario','crear-user')" >
                                     <span class="d-none d-md-block d-lg-block"><i class="far fa-envelope"></i> Enviar correo</span>
                                     <span class="d-md-none d-lg-none"><i class="far fa-envelope"></i></span>
                                 </button>
                             </div>
                         </div>
                         <small>
-                            <em><b>Nota:</b> Se creará un nuevo <b>Adminsitrador</b> y se enviará un mail con los accesos al correo ingresado</em>
+                            <em><b>Nota:</b> Se creará un nuevo <b>Usuario</b> y se enviará un mail con los accesos al correo ingresado</em>
                         </small>
                     </div>
+                </form>
+            </div>
+        </div>
+            <div id="user_admin" role="tabpanel" aria-labelledby="profile-tab" class="tab-pane fade px-4 py-5">
+                <div class="row">
+                    <form id="crear-admin" class="w-100">
+                        <div class="col-md-9 col-xs-12 col-lg-6 col-sm-12 offset-md-3">
+                            <div class="input-group mb-3">
+                                <input type="email" class="form-control" placeholder="Escriba un correo electrónico válido"
+                                       aria-describedby="basic-addon2" id="correo_administrador" required>
+                                <div class="input-group-append">
+                                    <button class="btn btn-green-custom" type="button" title="Enviar correo" onclick="enviar_correo(null,'correo_administrador','crear-admin')">
+                                        <span class="d-none d-md-block d-lg-block"><i class="far fa-envelope"></i> Enviar correo</span>
+                                        <span class="d-md-none d-lg-none"><i class="far fa-envelope"></i></span>
+                                    </button>
+                                </div>
+                            </div>
+                            <small>
+                                <em><b>Nota:</b> Se creará un nuevo <b>Adminsitrador</b> y se enviará un mail con los accesos al correo ingresado</em>
+                            </small>
+                        </div>
+                    </form>
                 </div>
             </div>
         @endif
         <div id="profile" role="tabpanel" aria-labelledby="accesos-tab" class="tab-pane fade px-4 py-5 {{session('id_rol') != 3 ? 'show active' : '' }}">
             <div class="row">
-                <div class="col-md-8 col-sm-12  offset-md-2  offset-sm-0">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-12 p-2">
-                            <input type="text" class="form-control input-datos-manual-custom text-center"
-                                   id="usuario" name="usuario" placeholder="Ingrese el nuevo usuario" required>
-                        </div>
-                        <div class="col-md-6 col-sm-12 p-2">
-                            <input type="password" class="form-control input-datos-manual-custom text-center"
-                                   id="contrasena" name="contrasena" placeholder="Ingrese la nueva contrasena" required>
+                <form id="form-editar-accesos" class="w-100">
+                    <div class="col-md-8 col-sm-12  offset-md-2  offset-sm-0">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12 p-2">
+                                <input type="text" class="form-control input-datos-manual-custom text-center"
+                                       id="usuario" name="usuario" placeholder="Ingrese el nuevo usuario" required>
+                            </div>
+                            <div class="col-md-6 col-sm-12 p-2">
+                                <input type="password" class="form-control input-datos-manual-custom text-center"
+                                       id="contrasena" name="contrasena" placeholder="Ingrese la nueva contrasena" required>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-12 w-100 text-center mt-3">
-                    <button type="button" class="btn btn-green-custom" onclick="actualizar_acessos()">
-                        <i class="fas fa-save"></i> Guardar
-                    </button>
-                </div>
+                    <div class="col-sm-12 w-100 text-center mt-3">
+                        <button type="button" id="update-accesos" class="btn btn-green-custom">
+                            <i class="fas fa-save"></i> Guardar
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

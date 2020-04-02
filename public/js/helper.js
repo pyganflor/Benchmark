@@ -25,6 +25,26 @@ $(function(){
             }
         }
     });
+
+    jQuery.extend(jQuery.validator.messages, {
+        required: "Este campo es requerido.",
+        remote: "Por favor arregla este campo.",
+        email: "Ingrese un correo válido.",
+        url: "Ingrese una URL válida.",
+        date: "Ingrese una fecha válida.",
+        dateISO: "Please enter a valid date (ISO).",
+        number: "Ingrese un número válido.",
+        digits: "Por favor ingrese solo dígitos.",
+        creditcard: "Por favor, introduzca un número de tarjeta de crédito válida.",
+        equalTo: "Por favor, introduzca el mismo valor de nuevo.",
+        accept: "Cargue un archivo con extensión válida",
+        maxlength: jQuery.validator.format("Debe ingresar no mas de {0} caracteres."),
+        minlength: jQuery.validator.format("Debe ingresar no menos de {0} caracteres."),
+        rangelength: jQuery.validator.format("Por favor, introduzca un valor entre {0} y {1} caracteres de largo."),
+        range: jQuery.validator.format("Por favor, introduzca un valor entre {0} y {1}."),
+        max: jQuery.validator.format("Por favor ingrese un valor menor o igual a {0}."),
+        min: jQuery.validator.format("Por favor ingrese un valor mayor o igual a {0}.")
+    });
 });
 
 function load(show=true){
@@ -52,7 +72,7 @@ function error_request(msg){
     });
 }
 
-function load_view_in_modal(data,f){
+function load_form_in_modal(data,f,form){
     $.confirm({
         closeIcon: true,
         closeIconClass: 'fas fa-times',
@@ -76,24 +96,24 @@ function load_view_in_modal(data,f){
             });
         },
         buttons: {
-            Guardar: {
+            formSubmit: {
                 text : '<i class="fas fa-save"></i> Guardar',
                 btnClass: 'btn-success',
                 action: function () {
                     if(f!= undefined)
-                        f();
+                        if($(form).valid())
+                            f()
+                        else
+                            return false
+                    else
+                        return false
                 }
             },
             Cancelar: {
                 text : '<i class="fas fa-ban"></i> Cancelar',
                 btnClass: 'btn-default',
                 action : function () {
-                    $.alert({
-                        title: 'Accion cancelada',
-                        icon : 'fas fa-exclamation-circle',
-                        titleClass : 'text-red',
-                        content:''
-                    });
+                    $.alert('Accion cancelada');
                 }
             },
         }
@@ -148,7 +168,6 @@ function request_ajax(data,f){
 }
 
 function confirmar(content,f) {
-
     $.confirm({
         title: "<i class='fas fa-exclamation-triangle'></i> Confirmar",
         content: content,
@@ -168,5 +187,4 @@ function confirmar(content,f) {
             },
         }
     });
-
 }

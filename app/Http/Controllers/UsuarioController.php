@@ -92,14 +92,12 @@ class UsuarioController extends Controller
 
         $valida = Validator::make($request->all(), [
             'contrasena' => 'required|min:8|alpha_num',
-            'usuario' => 'required|min:7|max:7'
+            'usuario' => 'required|min:7|'
         ], [
             'contrasena.min' => 'la contraseña debe tener mínimo 8 caracteres',
-            'contrasena.max' => 'la contraseña no debe tener mas de 8 caracteres',
             'contrasena.required' => 'Debe ingresar la contraseña',
-            'contrasena.alpha_num' => 'La contraseña debe ser alfa númerica',
+            'contrasena.alpha_num' => 'La contraseña debe ser letras y números',
             'usuario.min' => 'El usuario debe tener mínimo 7 caracteres',
-            'usuario.max' => 'El usuario no debe tener mas de 7 caracteres',
             'usuario.required' => 'Debe ingresar el usuario'
         ]);
 

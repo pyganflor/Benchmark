@@ -33,7 +33,7 @@ class LoginController extends Controller
 
         $usuario = Usuario::where('nombre',$request->usuario)->first();
 
-        if(Hash::check($request->contrasena,$usuario->contrasena)){
+        if(Hash::check($request->contrasena,$usuario->contrasena) && !$usuario->trash){
             session([
                 'logeado' => true,
                 'id_usuario' => $usuario->id_usuario,
@@ -42,10 +42,13 @@ class LoginController extends Controller
                 'id_rol' => $usuario->id_rol,
                 'rol' => $usuario->rol->nombre,
             ]);
-            return redirect('/');
         }else if($usuario->trash){
             $this->logout();
+            return redirect('login')->with('usuario-inactivo', 'El usuario ha estado inactivo por mucho tiempo');
+        }else{
+            return redirect('login')->with('pass-fail', 'La contrasena no coincide');
         }
+        return redirect('/');
     }
 
     public function logout(){

@@ -40,6 +40,11 @@
 
 /* lined tabs */
 
+#correo_usuario-error, #correo_administrador-error{
+    position: absolute;
+    top: 35px;
+}
+
 .lined .nav-link {
     border: none;
     border-bottom: 3px solid transparent;
