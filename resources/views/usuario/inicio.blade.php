@@ -5,7 +5,7 @@
 @endsection
 
 @section('contenido')
-<div class="p-md-4 p-sm-2 bg-white rounded shadow mb-md-5 mb-sm-1 w-100">
+    <div class="p-md-4 p-sm-2 bg-white rounded shadow mb-md-5 mb-sm-1 w-100">
     <!-- Rounded tabs -->
     <ul id="myTab" role="tablist"
         class="nav nav-tabs nav-pills flex-column flex-sm-row text-center bg-light border-0 rounded-nav">
@@ -101,7 +101,6 @@
     </div>
     <!-- End rounded tabs -->
 </div>
-
 @endsection
 @section('custom_script')
     @include('usuario.script')

@@ -20,7 +20,10 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{url('admin_usuarios')}}" class="nav-link">Usuario</a>
-                   </li>
+                </li>
+                <li class="nav-item">
+                    <a href="{{url('planta_variedad')}}" class="nav-link">Plantas y variedades</a>
+                </li>
             </ul>
         </div>
         <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
@@ -45,7 +48,6 @@
                         <!-- Message End -->
                     </a>
                     <div class="dropdown-divider"></div>
-
                 </div>
             </li>
             <li class="nav-item" style="border-left:1px solid #dee2e6">

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{asset('css/adminlte.min.css')}}">
     <!-- DataTables -->
     <link rel="stylesheet" href="{{asset('css/dataTables.bootstrap4.css')}}">
+
     <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.3.0/css/fixedColumns.dataTables.min.css">
     <!-- Confirm css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
@@ -61,7 +62,8 @@
 
 <!-- DataTables -->
 <script src="{{asset('js/jquery.dataTables.js')}}"></script>
-<script src="{{asset('js/dataTables.bootstrap4.js')}}"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
 <script src="https://cdn.datatables.net/fixedcolumns/3.3.0/js/dataTables.fixedColumns.min.js"></script>
 <!-- Confirm js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
