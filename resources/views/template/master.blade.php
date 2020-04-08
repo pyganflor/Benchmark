@@ -69,7 +69,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
 <!-- Validate js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
-
 <!-- Custom js -->
 <script src="{{asset('js/helper.js')}}"></script>
 @yield('custom_script')

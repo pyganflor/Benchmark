@@ -1,5 +1,6 @@
 <script>
 
+    //GESTION PLANTAS
     plantas();
 
     function plantas(){
@@ -12,6 +13,72 @@
         load_view(data);
     }
 
+    function form_planta(id_planta){
+        data = {
+            url : '{{url('planta_variedad/form_plantas')}}',
+            method : 'GET',
+            title : 'Crear plantas',
+            col : 'col-md-8',
+            titleClass : 'title-modal-in-view',
+            iconTitle : 'fas fa-leaf',
+            datos :{
+                id_planta : id_planta
+            },
+        };
+        load_form_in_modal(data);
+    }
+
+    function estado_planta(estado,id_planta){
+        estado == 1
+            ? text= 'Desactivar'
+            : text = 'Activar';
+
+        content = "<div class='alert alert-info text-light text-center w-100'>"
+                        +"Esta seguro en "+text+" la planta?" +
+                 "</div>";
+
+        confirmar(content, function () {
+
+            data = {
+                url: '{{url('planta_variedad/estado_planta')}}',
+                type: 'POST',
+                datos: {
+                    estado : estado,
+                    id_planta : id_planta
+                }
+            };
+            request_ajax(data, function () {
+                plantas();
+                close_dialog();
+            });
+        });
+
+    }
+    
+    function delete_planta(id_planta) {
+        content = "<div class='alert alert-info text-light text-center w-100'>"
+            +"Esta seguro en Eliminar la planta?, esto borrar tambien las variedades asignadas a esta planta" +
+            "</div>";
+
+        confirmar(content, function () {
+
+            data = {
+                url: '{{url('planta_variedad/delete_planta')}}',
+                type: 'POST',
+                datos: {
+                    id_planta : id_planta
+                }
+            };
+            request_ajax(data, function () {
+                plantas();
+                close_dialog();
+            });
+        });
+    }
+
+    //GESTION VARIEDADES
+    variedades();
+
     function variedades(){
         data={
             url : '{{url('planta_variedad/variedades')}}',
@@ -22,53 +89,117 @@
         load_view(data);
     }
 
-    function form_planta(){
+    function form_variedad(id_variedad){
         data = {
-            url : '{{url('planta_variedad/form_plantas')}}',
+            url : '{{url('planta_variedad/form_variedades')}}',
             method : 'GET',
-            title : 'Crear plantas',
+            title : 'Crear variedades',
             col : 'col-md-8',
             titleClass : 'title-modal-in-view',
-            iconTitle : 'fas fa-leaf',
-            datos :{},
+            iconTitle : 'fas fa-cubes',
+            datos :{
+                id_variedad : id_variedad
+            },
         };
-        load_form_in_modal(data,function(){
-            store_planta()
-        },'#form-planta');
-
-        //cant = $("tr.tr_nuevo_planta").length+1;
-
-        /*$("#tbody_planta").prepend(
-            "<tr class='tr_nuevo_planta' id='tr_nuevo_planta_"+cant+"'>" +
-                "<td class='text-center'>Nuevo</td>" +
-                "<td class='text-center'>" +
-                    "<input type='text' class='form-control form-control-sm' " +
-                        "placeholder='Nombre' required>" +
-                " </td>" +
-                "<td class='text-center'>" +
-                    "<select class='form-control form-control-sm'>" +
-                        "<option value='1'>Activo</option>"+
-                        "<option value='0'>Inactivo</option>"+
-                    "</select>" +
-                "</td>" +
-                "<td class='text-center'>" +
-                    "<button class='btn btn-sm btn-success ml-1 mr-1' onclick='store_row_planta()'>" +
-                        "<i class='far fa-save'></i> Guardar" +
-                    "</button>" +
-                    "<button class='btn btn-sm btn-danger ml-1 mr-1' onclick='delete_row_planta("+cant+")'>" +
-                        "<i class='far fa-trash-alt'></i> Eliminar" +
-                    "</button>"+
-                "</td>" +
-            "</tr>"
-        );*/
+        load_form_in_modal(data);
     }
 
-    function store_planta(){
+    function estado_variedad(estado,id_variedad){
+        estado == 1
+            ? text= 'Desactivar'
+            : text = 'Activar';
+
+        content = "<div class='alert alert-info text-light text-center w-100'>"
+            +"Esta seguro en "+text+" la variedad?" +
+            "</div>";
+
+        confirmar(content, function () {
+
+            data = {
+                url: '{{url('planta_variedad/estado_variedades')}}',
+                type: 'POST',
+                datos: {
+                    estado : estado,
+                    id_variedad : id_variedad
+                }
+            };
+            request_ajax(data, function () {
+                variedades();
+                close_dialog();
+            });
+        });
 
     }
 
-    function delete_row_planta(id){
-        $("tr#tr_nuevo_planta_"+id).remove();
+    function delete_variedad(id_variedad) {
+        content = "<div class='alert alert-info text-light text-center w-100'>"
+            +"Esta seguro en eliminar la variedad?" +
+            "</div>";
+
+        confirmar(content, function () {
+
+            data = {
+                url: '{{url('planta_variedad/delete_variedades')}}',
+                type: 'POST',
+                datos: {
+                    id_variedad : id_variedad
+                }
+            };
+            request_ajax(data, function () {
+                variedades();
+                close_dialog();
+            });
+        });
     }
 
+
+    //GESTION ASIGNA VARIEDADES
+    asigna_variedades();
+
+    function asigna_variedades() {
+        data={
+            url : '{{url('planta_variedad/asigna_variedades')}}',
+            type : 'GET',
+            id  : 'tabla_asigna_variedad',
+            datos :{}
+        };
+        load_view(data);
+    }
+
+    function store_asignacion() {
+        variedad_usuario=[];
+        $.each($("input.asinga_variedad"),function(i,j){
+
+            if($(j).is(':checked')){
+                variedad_usuario.push({
+                    id_variedad : j.id
+                });
+            }
+
+        });
+        console.log(variedad_usuario);
+        if(variedad_usuario.length===0){
+            error_request("Debe agregar al menos una planta");
+            return false;
+        }
+
+        content = "<div class='alert alert-info text-light text-center w-100'>"
+            +"Desea guardar las plantas?" +
+            "</div>";
+
+        confirmar(content, function () {
+
+            data = {
+                url: '{{url('planta_variedad/store_asignacion_variedad')}}',
+                type: 'POST',
+                datos: {
+                    variedad_usuario : variedad_usuario
+                }
+            };
+            request_ajax(data, function () {
+                plantas();
+                close_dialog();
+            });
+        });
+    }
 </script>

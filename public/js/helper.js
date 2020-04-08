@@ -52,11 +52,11 @@ function load(show=true){
 }
 
 function error_request(msg){
-    content = "<div class='alert alert-danger w-100 overflow-auto' role='alert'>"
+    content = "<div class='alert alert-danger text-center w-100 overflow-auto' role='alert'>"
                   + msg +
               "</div>";
 
-    title = '<span class="text-danger">Hubo un error en la petición realizada al servidor</span>';
+    title = '<span class="text-danger ">Hubo un error en la petición realizada al servidor</span>';
 
     $.alert({
         title: title,
@@ -72,8 +72,8 @@ function error_request(msg){
     });
 }
 
-function load_form_in_modal(data,f,form){
-    $.confirm({
+function load_form_in_modal(data){
+    $.dialog({
         closeIcon: true,
         closeIconClass: 'fas fa-times',
         animation: 'rotateY',
@@ -94,28 +94,6 @@ function load_form_in_modal(data,f,form){
             }).fail(function(){
                 self.setContent('Hubo un error en la petición');
             });
-        },
-        buttons: {
-            formSubmit: {
-                text : '<i class="fas fa-save"></i> Guardar',
-                btnClass: 'btn-success',
-                action: function () {
-                    if(f!= undefined)
-                        if($(form).valid())
-                            f()
-                        else
-                            return false
-                    else
-                        return false
-                }
-            },
-            Cancelar: {
-                text : '<i class="fas fa-ban"></i> Cancelar',
-                btnClass: 'btn-default',
-                action : function () {
-                    $.alert('Accion cancelada');
-                }
-            },
         }
     });
 }
@@ -141,8 +119,9 @@ function request_ajax(data,f){
         type: data.type,
         data : data.datos,
         success: function(response){
+            console.log(response);
            if(response.success){
-               content = "<div class='alert alert-success w-100 overflow-auto' role='alert'> "+response.msg+"</div>";
+               content = "<div class='alert alert-success w-100 text-center overflow-auto' role='alert'> "+response.msg+"</div>";
                title = 'La accion se ha realizado con éxito';
                $.alert({
                    title: title,
@@ -164,7 +143,6 @@ function request_ajax(data,f){
     }).always(function(){
         load(false);
     });
-
 }
 
 function confirmar(content,f) {
@@ -172,10 +150,10 @@ function confirmar(content,f) {
         title: "<i class='fas fa-exclamation-triangle'></i> Confirmar",
         content: content,
         titleClass :'text-info',
+        type: 'blue',
         buttons: {
             Confirmar: {
-                text: 'Confirmar',
-                btnClass: 'btn btn-success', // class for the button
+                btnClass: 'btn btn-success',
                 icon: 'far fa-save',
                 action: function(){
                     if(f!=undefined)
@@ -187,4 +165,8 @@ function confirmar(content,f) {
             },
         }
     });
+}
+
+function close_dialog(){
+    $(".jconfirm").remove();
 }

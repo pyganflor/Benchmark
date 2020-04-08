@@ -65,3 +65,8 @@
     color: #fff;
     background-color: #00b388!important;
 }
+
+label.error{
+    position: absolute;
+    top: 28px;
+}

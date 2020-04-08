@@ -19,7 +19,7 @@
         include_once('rutas/admin_usuarios.php');
         include_once('rutas/benchmark.php');
         include_once('rutas/dashboard.php');
-        include_once('rutas/planta_variedad.php');
+        include_once('rutas/plantas_variedades.php');
     });
 
 

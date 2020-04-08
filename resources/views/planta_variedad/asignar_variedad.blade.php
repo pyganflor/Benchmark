@@ -1,35 +1,53 @@
 <div class="w-100">
-    <table id="tbl_planta" class="table table-sm table-bordered" >
+    <table id="tbl_asigna_variedad" class="table table-sm table-bordered" >
         <thead>
         <tr>
             <th>#</th>
-            <th>Nombre</th>
-            <th class="text-center">Estado</th>
-            <th class="text-center">Acción</th>
+            <th class="text-center">Asignar </th>
+            <th class="text-center">Variedad</th>
+            <th class="text-center">Planta</th>
         </tr>
         </thead>
         <tbody class="bg-gradient-white" >
+        @foreach($variedades as $x=> $variedad)
             <tr>
                 <td>
-                    1
+                    {{$x+1}}
                 </td>
                 <td class="text-center">
-
+                    <input type="checkbox" class="asinga_variedad" id="{{$variedad->id_variedad}}">
                 </td>
                 <td class="text-center">
-
+                    {{$variedad->nombre}}
                 </td>
                 <td class="text-center">
-
+                    {{$variedad->planta->nombre}}
                 </td>
-
             </tr>
+        @endforeach
         </tbody>
     </table>
 </div>
 <script>
     $(function () {
-        $("#tbl_planta").DataTable({
+        $("#tbl_asigna_variedad").DataTable({
+            initComplete: function () {
+                this.api().column(2).every( function () {
+                    var column = this;
+                    var select = $('<select class="form-control form-control-sm ml-1" style="display: inline-block;width: auto;">' +
+                        '<option value="">Todas</option>' +
+                        '</select>');
+                    var label = $("<label class='ml-1' id='label-asigna-variedad'>Planta:</label>");
+                    label.appendTo( "#tbl_asigna_variedad_filter" );
+                    select.appendTo( "#label-asigna-variedad" ).change( function () {
+                        var val = $.fn.dataTable.util.escapeRegex($(this).val());
+                        column.search( val ? '^'+val+'$' : '', true, false ).draw();
+                    });
+                    column.data().unique().sort().each( function ( d, j ) {
+                        select.append( '<option value="'+d+'">'+d+'</option>' )
+                    });
+                });
+            },
             "ordering": true,
             "language": {
                 "paginate": {
@@ -52,13 +70,13 @@
             dom: 'Bfrtip',
             buttons: [
                 {
-                    text: '<i class="fas fa-plus-circle"></i> Agregar planta',
+                    text: '<i class="fas fa-save"></i> Guardar asignación',
                     className: 'btn btn-success float-left btn-green-custom bnt-round m-1',
                     action: function ( e, dt, node, config ) {
-                        form_planta();
+                        store_asignacion();
                     }
-                },
-            ],
+                }
+            ]
         });
     });
 </script>

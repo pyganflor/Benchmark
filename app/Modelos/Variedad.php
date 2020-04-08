@@ -32,4 +32,8 @@ class Variedad extends Model
         'id_planta',
         'id_variedad'
     ];
+
+    public function planta(){
+        return $this->belongsTo('\App\Modelos\Planta','id_planta');
+    }
 }

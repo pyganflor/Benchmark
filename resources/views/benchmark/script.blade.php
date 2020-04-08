@@ -41,9 +41,7 @@
             iconTitle : 'fas fa-file-upload',
             datos :{},
         };
-        load_form_in_modal(data,function(){
-            upload_file();
-        },'#form-excel');
+        load_form_in_modal(data);
     });
 
 
@@ -57,18 +55,7 @@
             iconTitle : 'fas fa-edit',
             datos :{},
         };
-        load_form_in_modal(data,function(){
-            carga_datos_manual();
-        },'#datos-manuales');
+        load_form_in_modal(data);
     });
-
-
-    function upload_file(){
-        console.log("hola");
-    }
-
-    function carga_datos_manual(){
-        console.log("hola2",);
-    }
 
 </script>

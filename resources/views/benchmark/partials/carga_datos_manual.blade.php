@@ -39,4 +39,19 @@
                    class="form-control form-control-sm text-center input-datos-manual-custom">
         </div>
     </div>
+    <div class="text-center">
+        <button type="button" class="btn btn-sm btn-secondary" onclick="close_dialog()">
+            <i class="fas fa-ban"></i> Cerrar
+        </button>
+        <button type="button" class="btn btn-sm btn-success" id="btn_carga_manual">
+            <i class="fas fa-save"></i> Guardar
+        </button>
+    </div>
 </form>
+<script>
+    $("#btn_carga_manual").click(function(){
+        if($("#datos-manuales").valid()){
+            console.log("hola2");
+        }
+    });
+</script>

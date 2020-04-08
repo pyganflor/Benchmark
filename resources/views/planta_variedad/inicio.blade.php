@@ -26,7 +26,7 @@
             <li class="nav-item flex-sm-fill">
                 <a id="accesos-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
                    aria-selected="false" class="nav-link border-0 text-uppercase font-weight-bold {{session('id_rol') != 3 ? 'active' : '' }}">
-                    Asignar plantas y variedades
+                    Asignar variedades
                 </a>
             </li>
         </ul>
@@ -36,11 +36,11 @@
                     <div class="row" id="tabla_plantas"></div>
                 </div>
                 <div id="user_admin" role="tabpanel" aria-labelledby="profile-tab" class="tab-pane fade px-4 py-5">
-                    <div class="row" id="tablas_variedades"></div>
+                    <div class="row" id="tabla_variedades"></div>
                 </div>
             @endif
             <div id="profile" role="tabpanel" aria-labelledby="accesos-tab" class="tab-pane fade px-4 py-5 {{session('id_rol') != 3 ? 'show active' : '' }}">
-                <div class="row"></div>
+                <div class="row" id="tabla_asigna_variedad"> </div>
             </div>
         </div>
         <!-- End rounded tabs -->
