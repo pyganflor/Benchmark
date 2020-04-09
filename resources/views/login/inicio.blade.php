@@ -42,7 +42,7 @@
                             <span class="fas fa-user-circle {{$errors->has('usuario') ? 'text-red' :'' }}"></span>
                         </div>
                     </div>
-                    <input class="form-control {{$errors->has('usuario') ? 'border border-danger' :'' }}"
+                    <input class="form-control {{$errors->has('usuario') ? 'is-invalid' :'' }}"
                            placeholder="Usuario" type="text" name="usuario" value="{{old('usuario')}}">
                 </div>
                 @if ($errors->has('usuario'))
@@ -55,8 +55,8 @@
                         <div class="input-group-text fa-login border-silver" style="border-radius:0">
                             <span class="fas fa-lock  {{$errors->has('contrasena') ? 'text-red' :'' }}"></span>
                         </div>
-                        </div>
-                    <input class="form-control {{$errors->has('contrasena') ? 'border border-danger' :'' }}"
+                    </div>
+                    <input class="form-control {{$errors->has('contrasena') ? 'is-invalid' :'' }}"
                            name="contrasena" placeholder="Contraseña" type="password">
                 </div>
                 @if (session('pass-fail'))

@@ -20,3 +20,4 @@
     //ASIGNA VARIEDADES
     Route::get('planta_variedad/asigna_variedades','PlantaVariedadController@asignaVariedades');
     Route::post('planta_variedad/store_asignacion_variedad','PlantaVariedadController@storeAsignacionVariedades');
+    Route::post('planta_variedad/delete_asignacion_variedad','PlantaVariedadController@deleteAsignacionVariedades');

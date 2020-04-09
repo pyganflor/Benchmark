@@ -269,4 +269,27 @@ class PlantaVariedadController extends Controller
             'success' => $success
         ];
     }
+
+    public function deleteAsignacionVariedades(Request $request){
+
+        try{
+            $objVariedadUsuario = VariedadUsuario::where([
+                ['id_variedad',$request->id_variedad],
+                ['id_usuario',session('id_usuario')]
+            ]);
+            if($objVariedadUsuario->delete()){
+                $success =true;
+                $msg = 'Se ha removido la asignación la variedad con éxito';
+            }
+
+        }catch(\Exception $e){
+            $success =false;
+            $msg = 'Ha ocurrido un inconveniente al remover la asignación de la variedad, se describe a continuación 
+                            <br/>'.$e->getMessage().'<br/> En la linea:'.$e->getLine().'<br/> del archivo: '.$e->getFile();
+        }
+        return [
+            'msg' => $msg,
+            'success' => $success
+        ];
+    }
 }

@@ -36,4 +36,11 @@ class Variedad extends Model
     public function planta(){
         return $this->belongsTo('\App\Modelos\Planta','id_planta');
     }
+
+    public function variedad_usuario(){
+        return VariedadUsuario::where([
+            ['id_variedad',$this->id_variedad],
+            ['id_usuario',session('id_usuario')]
+        ])->exists();
+    }
 }

@@ -177,7 +177,6 @@
             }
 
         });
-        console.log(variedad_usuario);
         if(variedad_usuario.length===0){
             error_request("Debe agregar al menos una planta");
             return false;
@@ -197,7 +196,28 @@
                 }
             };
             request_ajax(data, function () {
-                plantas();
+                asigna_variedades();
+                close_dialog();
+            });
+        });
+    }
+
+    function delete_asignacion(id_variedad){
+        content = "<div class='alert alert-info text-light text-center w-100'>"
+            +"Esta seguro de eliminar esta asignación?" +
+            "</div>";
+
+        confirmar(content, function () {
+
+            data = {
+                url: '{{url('planta_variedad/delete_asignacion_variedad')}}',
+                type: 'POST',
+                datos: {
+                    id_variedad : id_variedad
+                }
+            };
+            request_ajax(data, function () {
+                asigna_variedades();
                 close_dialog();
             });
         });

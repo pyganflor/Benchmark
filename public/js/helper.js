@@ -98,6 +98,7 @@ function load_form_in_modal(data){
     });
 }
 
+
 function load_view(data){
     load();
     $.ajax({

@@ -70,3 +70,14 @@ label.error{
     position: absolute;
     top: 28px;
 }
+
+.custom-control-input:checked~.custom-control-label::before {
+    color: #fff;
+    border-color: #00b388!important;
+    background-color: #00b388!important;
+}
+
+.page-item.active .page-link {
+    background-color: #00b388!important;
+    border-color: #00b388!important;
+}

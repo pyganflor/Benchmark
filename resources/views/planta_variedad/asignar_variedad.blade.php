@@ -3,9 +3,9 @@
         <thead>
         <tr>
             <th>#</th>
-            <th class="text-center">Asignar </th>
-            <th class="text-center">Variedad</th>
             <th class="text-center">Planta</th>
+            <th class="text-center">Variedad</th>
+            <th class="text-center">Asignar </th>
         </tr>
         </thead>
         <tbody class="bg-gradient-white" >
@@ -15,13 +15,25 @@
                     {{$x+1}}
                 </td>
                 <td class="text-center">
-                    <input type="checkbox" class="asinga_variedad" id="{{$variedad->id_variedad}}">
+                    {{$variedad->planta->nombre}}
                 </td>
                 <td class="text-center">
                     {{$variedad->nombre}}
                 </td>
                 <td class="text-center">
-                    {{$variedad->planta->nombre}}
+                    @if($variedad->variedad_usuario())
+                        <button class="btn btn-sm btn-default" title="Eliminar asignación"
+                                onclick="delete_asignacion('{{$variedad->id_variedad}}')">
+                            <i class="fas fa-ban"></i>
+                        </button>
+                    @else
+                        <div class="custom-control custom-checkbox">
+                            <input class="custom-control-input asinga_variedad" type="checkbox"
+                                   id="{{$variedad->id_variedad}}">
+                            <label for="{{$variedad->id_variedad}}" class="custom-control-label"
+                            style="cursor:pointer"></label>
+                        </div>
+                    @endif
                 </td>
             </tr>
         @endforeach
