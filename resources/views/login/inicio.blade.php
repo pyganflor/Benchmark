@@ -46,9 +46,7 @@
                            placeholder="Usuario" type="text" name="usuario" value="{{old('usuario')}}">
                 </div>
                 @if ($errors->has('usuario'))
-                    <div class="text-red mb-1">
-                        <i class="far fa-times-circle"></i> {{$errors->first('usuario')}}
-                    </div>
+                    <div class="text-red mb-1"> {{$errors->first('usuario')}} </div>
                 @endif
                 <div class="input-group mb-2">
                     <div class="input-group-prepend {{$errors->has('contrasena') ? 'border border-danger' :'' }}">
@@ -56,16 +54,14 @@
                             <span class="fas fa-lock  {{$errors->has('contrasena') ? 'text-red' :'' }}"></span>
                         </div>
                     </div>
-                    <input class="form-control {{$errors->has('contrasena') ? 'is-invalid' :'' }}"
+                    <input class="form-control {{$errors->has('contrasena') || session('pass-fail') ? 'is-invalid' :'' }}"
                            name="contrasena" placeholder="Contraseña" type="password">
                 </div>
                 @if (session('pass-fail'))
-                    <span class="text-red  mb-1">  <i class="far fa-times-circle"></i> {{ session('pass-fail') }} </span>
+                    <span class="text-red  mb-1"> {{ session('pass-fail') }} </span>
                 @endif
                 @if ($errors->has('contrasena'))
-                        <div class="text-red mb-1">
-                            <i class="far fa-times-circle"></i> {{$errors->first('contrasena')}}
-                        </div>
+                        <div class="text-red mb-1"> {{$errors->first('contrasena')}} </div>
                     @endif
                 <div class="row mb-4 ml-0 mr-0 ">
                         <div class="text-center">
