@@ -49,7 +49,7 @@ class UsuarioController extends Controller
                     $success = true;
                     $modelUSuario = $usuario = Usuario::all()->last();
                     Mail::to($request->correo)->send(new EnviarAccesos($user,$passRandom));
-                    $msg = '<div class="alert alert-success w-100 text-center">Se ha enviado el correo con los e-mail con los accesos al correo ingresado</div>';
+                    $msg = '<div class="alert alert-success w-100 text-center">Se ha enviado el mail con los accesos al correo '.$request->correo.'</div>';
                 }
 
             }catch(\Exception $e){
