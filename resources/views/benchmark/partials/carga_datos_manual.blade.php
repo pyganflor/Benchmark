@@ -79,7 +79,7 @@
 <script>
     $("#btn_carga_manual").click(function(){
         if($("#datos-manuales").valid()){
-            console.log("hola2");
+
         }
     });
 

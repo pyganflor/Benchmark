@@ -16,6 +16,7 @@ class LoginController extends Controller
     }
 
     public function acceder(Request $request){
+        dd(Usuario::get());
 
         Validator::make($request->all(), [
             'usuario' => 'required|min:7|exists:usuario,nombre',

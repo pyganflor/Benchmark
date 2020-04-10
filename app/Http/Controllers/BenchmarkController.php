@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Modelos\Variedad;
 use Illuminate\Http\Request;
 use App\Modelos\Planta;
+use App\Imports\DataExcel;
+use Maatwebsite\Excel\Facades\Excel;
 
 class BenchmarkController extends Controller
 {
@@ -31,6 +33,7 @@ class BenchmarkController extends Controller
     }
 
     public function storeDataFile(Request $request){
-
+        //dd($request->all());
+        Excel::Import(new DataExcel, $request->file('archivo_excel'));
     }
 }
