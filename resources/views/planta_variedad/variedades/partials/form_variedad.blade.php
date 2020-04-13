@@ -42,7 +42,7 @@
 </form>
 <script>
     $("button#btn_add_variedad").click(function () {
-        cant = $("div.inputs_variedad").length+1;
+        cant = $("div.input_variedad").length+1;
         $("#inputs_variedad").append(
             "<div class='col-md-6 col-sm-12 pb-4 input_variedad' id='input_variedad_"+cant+"'>" +
             "   <div class='input-group input-group-sm'>" +
