@@ -371,6 +371,10 @@ div.g-recaptcha div{
     opacity: .8;
 }
 
+.btn-success{
+    background:#00b388
+}
+
 @media(max-width:767px){
     .tools-leyenda{
         width:100%!important;
