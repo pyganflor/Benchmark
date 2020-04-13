@@ -372,7 +372,7 @@ div.g-recaptcha div{
 }
 
 .btn-success{
-    background:#00b388
+    background:#00b388!important
 }
 
 @media(max-width:767px){
