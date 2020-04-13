@@ -359,6 +359,18 @@ div.g-recaptcha div{
     color:#EF6E11
 }
 
+.loading{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 999999999999;
+    background: url('/img/loading.gif') 50% 50% no-repeat rgb(41,41,41);
+    background-size: 15%;
+    opacity: .8;
+}
+
 @media(max-width:767px){
     .tools-leyenda{
         width:100%!important;

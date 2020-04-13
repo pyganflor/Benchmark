@@ -23,6 +23,7 @@
 </head>
 <body class="hold-transition layout-top-nav">
 <div class="wrapper">
+    <div class="loading"></div>
     @include('template.nav')
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">

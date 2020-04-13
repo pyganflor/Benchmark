@@ -1,35 +1,17 @@
 <script>
-    $(function () {
-        $("#example1").DataTable({
-            "paging": false,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": true,
-            "info": false,
-            "scrollX": true,
-            "language": {
-                "paginate": {
-                    first:    'Inicio',
-                    previous: 'Anterior',
-                    next:     'Siguiente',
-                    last:     'Último'
-                },
-                "infoEmpty": "No se encontraron registros",
-                "loadingRecords": "Cargando datos...",
-                "sSearch":         "Buscar:",
-                "sEmptyTable":     "Ningún dato disponible en esta tabla",
-                "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
-                "sLoadingRecords": "Cargando...",
-                "sZeroRecords":    "No se encontraron resultados",
-                "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-                "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
-                "sLengthMenu":     "Mostrar _MENU_ registros",
-            },
-            fixedColumns: {
-                leftColumns: 1
-            }
-        });
-    });
+
+    tabla();
+
+    function tabla(){
+
+        data={
+            url : '{{url('benchmark/tabla')}}',
+            type : 'GET',
+            id  : 'tabla_benchmark',
+            datos :{}
+        };
+        load_view(data)
+    }
 
     $("#importar_archivo").click(function () {
         data = {

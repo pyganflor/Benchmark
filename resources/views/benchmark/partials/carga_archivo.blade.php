@@ -31,7 +31,7 @@
                     success: function(response){
                         console.log(response);
                         if(response.success){
-                            content = "<div class='alert alert-success w-100 text-center overflow-auto' role='alert'> "+response.msg+"</div>";
+                            content = "<div class='alert alert-success w-100 overflow-auto' role='alert'> "+response.msg+"</div>";
                             title = 'La accion se ha realizado con éxito';
                             $.alert({
                                 title: title,
@@ -42,8 +42,7 @@
                                 theme: 'light',
                                 columnClass: 'col-md-6',
                                 onClose: function () {
-                                    if(f!=undefined)
-                                        f();
+                                    close_dialog();
                                 },
                             });
                         }else{

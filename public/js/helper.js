@@ -45,10 +45,11 @@ $(function(){
         max: jQuery.validator.format("Por favor ingrese un valor menor o igual a {0}."),
         min: jQuery.validator.format("Por favor ingrese un valor mayor o igual a {0}.")
     });
+    load(false);
 });
 
 function load(show=true){
-
+    show ? $(".loading").fadeIn("slow") : $(".loading").fadeOut("slow");
 }
 
 function error_request(msg){
@@ -93,6 +94,8 @@ function load_form_in_modal(data){
                 self.setTitle(data.title);
             }).fail(function(){
                 self.setContent('Hubo un error en la petición');
+            }).always(function(){
+
             });
         }
     });

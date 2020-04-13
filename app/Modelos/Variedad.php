@@ -21,14 +21,6 @@ class Variedad extends Model
         'descripcion',
         'estado',
         'fecha_registro',
-    ];
-
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
         'id_planta',
         'id_variedad'
     ];

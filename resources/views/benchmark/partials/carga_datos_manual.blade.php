@@ -1,6 +1,6 @@
 <form id="datos-manuales" class="mt-4">
     <div class="form-row">
-        <div class="col-md-4 colsm-12 col-xs-12">
+        <div class="col-md-3 colsm-12 col-xs-12">
             <div class="input-group-prepend">
                 <span class="input-group-text bg-silver-dark-custom all-round icon-select-custom"
                       style="left: 5px;">
@@ -10,13 +10,16 @@
             <select id="semana" class="form-control form-control-sm text-center input-datos-manual-custom"
                     style="padding-left:50px">
                 <option value="">Semana</option>
+                @foreach($semanas as $semana)
+                    <option value="{{$semana->semana}}">{{$semana->semana}}</option>
+                @endforeach
             </select>
         </div>
         <div class="col-md-3 colsm-12 col-xs-12">
             <div class="input-group-prepend">
                 <span class="input-group-text bg-silver-dark-custom all-round icon-select-custom"
                       style="left: 5px;">
-                    <i class="far fa-calendar-alt"></i>
+                    <i class="fas fa-seedling"></i>
                 </span>
             </div>
             <select id="select_planta" class="form-control form-control-sm text-center input-datos-manual-custom"
@@ -31,7 +34,7 @@
             <div class="input-group-prepend">
                 <span class="input-group-text bg-silver-dark-custom all-round icon-select-custom"
                       style="left: 5px;">
-                    <i class="far fa-calendar-alt"></i>
+                    <i class="fas fa-leaf"></i>
                 </span>
             </div>
             <select id="select_variedad" class="form-control form-control-sm text-center input-datos-manual-custom"
@@ -63,7 +66,7 @@
         </div>
         <div class="col-md-2 col-sm-6 col-xs-6">
             <label class="label label-sm">Ventas totales</label>
-            <input type="number" id="ventas-totales" name="ventas-totales" required
+            <input type="number" id="ventas_totales" name="ventas-totales" required
                    class="form-control form-control-sm text-center input-datos-manual-custom">
         </div>
     </div>
@@ -79,7 +82,30 @@
 <script>
     $("#btn_carga_manual").click(function(){
         if($("#datos-manuales").valid()){
+            content = "<div class='alert alert-info text-light text-center w-100'>"
+                            +"Esta seguro de guardar los datos ingresados?" +
+                        "</div>";
 
+            confirmar(content, function () {
+
+                data = {
+                    url: '{{url('benchmark/store_data_manual')}}',
+                    type: 'POST',
+                    datos: {
+                        semana : $("#semana").val(),
+                        variedad : $("#select_variedad").val(),
+                        area : $("#area").val(),
+                        tallos : $("#tallos_cosechados").val(),
+                        cajas : $("#cajas_exportadas").val(),
+                        calibre : $("#calibre").val(),
+                        ventas : $("#ventas_totales").val()
+                    }
+                };
+                request_ajax(data, function () {
+                    tabla();
+                    close_dialog();
+                });
+            });
         }
     });
 
@@ -93,6 +119,7 @@
                 id_planta : $("#select_planta").val()
             },
             success: function(response){
+                console.log(response);
                 $.each(response,function(i,j){
                     $("select#select_variedad").append("<option class='option_dinamic' value='"+j.id_variedad+"'>"+j.nombre+"</option>");
                 });
