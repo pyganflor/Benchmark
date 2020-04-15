@@ -16,21 +16,69 @@
                         id="carga_datos_manual" style="cursor: pointer">
                     <i class="fas fa-plus-circle"></i> Añadir datos
                 </buttom>
+                <buttom class="btn btn-sm btn-green-custom bnt-round m-1"
+                        id="btn_tabla" style="cursor: pointer">
+                    <i class="fas fa-search"></i> Buscar
+                </buttom>
             </div>
         </div>
     </div>
     <div class="col-12">
         <div class="card-header">
-            <h3 class="card-title">
-                <div class="input-group">
-                    <div class="input-group-prepend">
+            <h3 class="card-title w-65">
+                <div class="form-row">
+                    <div class="col-md-3 col-sm-6 mt-2 mt-md-0">
+                        <div class="input-group-prepend">
                         <span class="input-group-text bg-silver-dark-custom all-round icon-select-custom">
-                            <i class="fas fa-seedling"></i>
+                            <i class="fas fa-cubes"></i>
                         </span>
+                        </div>
+                        <select class="select-custom form-control form-control-sm all-round font-weight-bold"
+                                id="planta_bechmark">
+                            <option selected disabled value="">Plantas</option>
+                            @foreach($plantas as $planta)
+                                <option value="{{$planta->id_planta}}">{{$planta->nombre}}</option>
+                            @endforeach
+                        </select>
                     </div>
-                    <select class="select-custom form-control form-control-sm all-round font-weight-bold" style=" width: 295px;">
-                        <option value="">Variedad</option>
-                    </select>
+                    <div class="col-md-3 col-sm-6 mt-2 mt-md-0">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text bg-silver-dark-custom all-round icon-select-custom">
+                            <i class="fas fa-cubes"></i>
+                        </span>
+                        </div>
+                        <select class="select-custom form-control form-control-sm all-round font-weight-bold"
+                                id="id_variedad">
+                            <option selected disabled value="">Variedad</option>
+
+                        </select>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mt-2 mt-md-0">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text bg-silver-dark-custom all-round icon-select-custom">
+                            <i class="far fa-calendar-alt"></i>
+                        </span>
+                        </div>
+                        <select class="select-custom form-control form-control-sm all-round font-weight-bold">
+                            <option selected disabled value="">Desde</option>
+                            @foreach($semanas as $semana)
+                                <option value="{{$semana->semana}}">{{$semana->semana}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mt-2 mt-md-0">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text bg-silver-dark-custom all-round icon-select-custom">
+                            <i class="far fa-calendar-alt"></i>
+                        </span>
+                        </div>
+                        <select class="select-custom form-control form-control-sm all-round font-weight-bold">
+                            <option selected disabled value="">Hasta</option>
+                            @foreach($semanas as $semana)
+                                <option value="{{$semana->semana}}">{{$semana->semana}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
             </h3>
             <div class="card-tools tools-leyenda">

@@ -13,10 +13,16 @@ use Validator;
 class BenchmarkController extends Controller
 {
     public function inicio(){
-        return view('benchmark.inicio');
+        return view('benchmark.inicio',[
+            'semanas'=> DatosFinca::select('semana')->orderBy('semana','desc')->distinct()->get(),
+            'plantas' => Planta::where('estado',true)->select('nombre','id_planta')->get()
+        ]);
     }
 
     public function tabla(){
+
+        $objDatosFinca = '';
+
         return view('benchmark.partials.tabla_datos');
     }
 

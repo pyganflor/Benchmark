@@ -308,7 +308,6 @@ div.g-recaptcha div{
     font-size: 36px;
 }
 
-
 .icon-select-dashboard {
     position: absolute;
     z-index: 999999;
@@ -375,6 +374,10 @@ div.g-recaptcha div{
     background:#00b388!important
 }
 
+.w-65{
+    width: 65%!important;
+}
+
 @media(max-width:767px){
     .tools-leyenda{
         width:100%!important;
@@ -382,7 +385,9 @@ div.g-recaptcha div{
         padding-right: 0px;
         font-size: 14px;
     }
-
+    .w-65{
+        width: 100%!important;
+    }
     .leyenda-mejor,.leyenda-finca,.leyenda-promedio {
         width: 13px;
         height: 13px;

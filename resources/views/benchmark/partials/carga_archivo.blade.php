@@ -1,8 +1,15 @@
 <form id="form-excel" class="mt-4">
     <div class="form-group">
-        <div class="custom-file">
-            <input type="file" class="custom-file-input" id="customFile" name="archivo_excel" required>
-            <label class="custom-file-label" for="customFile">Seleccione el archivo a subir</label>
+        <div class="input-group">
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" id="customFile" name="archivo_excel" required>
+                <label class="custom-file-label" for="customFile">Seleccione el archivo a subir</label>
+            </div>
+            <div class="input-group-append">
+                <a href="{{url('formato_carga_datos.xlsx')}}" class="btn btn-success">
+                    <i class="fas fa-download"></i> Formato
+                </a>
+            </div>
         </div>
     </div>
     <div class="text-center">

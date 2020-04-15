@@ -12,12 +12,14 @@
         <div class="collapse navbar-collapse order-3" id="navbarCollapse">
             <!-- Left navbar links -->
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a href="{{url('/')}}" class="nav-link">Dasboard</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{url('benchmark')}}" class="nav-link">Benchmark</a>
-                </li>
+                @if(session('id_rol') === 2)
+                    <li class="nav-item">
+                        <a href="{{url('/')}}" class="nav-link">Dasboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{url('benchmark')}}" class="nav-link">Benchmark</a>
+                    </li>
+                @endif
                 <li class="nav-item">
                     <a href="{{url('admin_usuarios')}}" class="nav-link">Usuario</a>
                 </li>

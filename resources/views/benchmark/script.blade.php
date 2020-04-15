@@ -26,7 +26,6 @@
         load_form_in_modal(data);
     });
 
-
     $("#carga_datos_manual").click(function () {
         data = {
             url : '{{url('benchmark/cargad_manual')}}',
@@ -38,6 +37,30 @@
             datos :{},
         };
         load_form_in_modal(data);
+    });
+
+    $("#planta_bechmark").change(function () {
+        load();
+        $("select#id_variedad option.option_dinamic").remove();
+        $.ajax({
+            url: '{{url('benchmark/options_variedades')}}',
+            type: 'GET',
+            data : {
+                id_planta : this.value
+            },
+            success: function(response){
+                console.log(response);
+                $.each(response,function(i,j){
+                    $("select#id_variedad").append("<option class='option_dinamic' value='"+j.id_variedad+"'>"+j.nombre+"</option>");
+                });
+            }
+        }).always(function(){
+            load(false);
+        });
+    });
+
+    $("#btn_tabla").click(function(){
+        tabla();
     });
 
 </script>
