@@ -38,14 +38,17 @@
                     success: function(response){
                         console.log(response);
                         if(response.success){
-                            content = "<div class='alert alert-success w-100 overflow-auto' role='alert'> "+response.msg+"</div>";
-                            title = 'La accion se ha realizado con éxito';
+                            response.alert == 1
+                                ? class_alert ='alert-success'
+                                : class_alert ='alert-warning';
+                            content = "<div class='alert "+class_alert+" w-100 overflow-auto' role='alert'> "+response.msg+"</div>";
+                            title = 'El archivo se procesó con éxito';
                             $.alert({
                                 title: title,
                                 content: content,
                                 icon: 'fas fa-check',
-                                type: 'green',
-                                titleClass : 'text-success',
+                                type: response.alert == 1 ? 'green' : 'orange',
+                                titleClass : response.alert == 1 ? 'text-success' : 'text-warning',
                                 theme: 'light',
                                 columnClass: 'col-md-6',
                                 onClose: function () {

@@ -378,6 +378,10 @@ div.g-recaptcha div{
     width: 65%!important;
 }
 
+.tooltip{
+    z-index: 9999999999!important;
+}
+
 @media(max-width:767px){
     .tools-leyenda{
         width:100%!important;

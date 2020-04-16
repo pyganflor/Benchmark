@@ -20,6 +20,7 @@ class DatosFinca extends Model
         'id_usuario',
         'id_variedad',
         'semana',
+        'ciclo_anno',
         'area',
         'tallos',
         'cajas',
