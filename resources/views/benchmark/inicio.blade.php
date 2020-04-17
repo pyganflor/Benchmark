@@ -50,7 +50,6 @@
                         <select class="select-custom form-control form-control-sm all-round font-weight-bold"
                                 id="id_variedad">
                             <option selected disabled value="">Variedad</option>
-
                         </select>
                     </div>
                     <div class="col-md-3 col-sm-6 mt-2 mt-md-0">
@@ -59,7 +58,8 @@
                             <i class="far fa-calendar-alt"></i>
                         </span>
                         </div>
-                        <select class="select-custom form-control form-control-sm all-round font-weight-bold">
+                        <select class="select-custom form-control form-control-sm all-round font-weight-bold"
+                                id="desde">
                             <option selected disabled value="">Desde</option>
                             @foreach($semanas as $semana)
                                 <option value="{{$semana->semana}}">{{$semana->semana}}</option>
@@ -72,7 +72,8 @@
                             <i class="far fa-calendar-alt"></i>
                         </span>
                         </div>
-                        <select class="select-custom form-control form-control-sm all-round font-weight-bold">
+                        <select class="select-custom form-control form-control-sm all-round font-weight-bold"
+                                id="hasta">
                             <option selected disabled value="">Hasta</option>
                             @foreach($semanas as $semana)
                                 <option value="{{$semana->semana}}">{{$semana->semana}}</option>

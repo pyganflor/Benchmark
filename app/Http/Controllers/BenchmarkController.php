@@ -20,11 +20,56 @@ class BenchmarkController extends Controller
         ]);
     }
 
-    public function tabla(){
+    public function tabla(Request $request){
 
-        $objDatosFinca = '';
+        $datos = [];
 
-        return view('benchmark.partials.tabla_datos');
+        $objDatosFinca = DatosFinca::whereBetween('semana',[$request->desde,$request->hasta])
+                            ->where('id_variedad',$request->id_variedad)->get();
+
+        $semanas =[];
+        foreach ($objDatosFinca as $semana){
+            if(!in_array($semana->semana,$semanas))
+                $semanas[]=$semana->semana;
+        }
+
+        $data =[];
+        foreach($objDatosFinca as $dsf){
+            //precio_tallo
+            $data['precio_tallo'][$dsf->semana][]= $dsf->venta/$dsf->tallos;
+
+            //precio_ramo
+            $ramos = $dsf->tallos/$dsf->calibre;
+            $data['precio_ramo'][$dsf->semana][]=$dsf->venta/$ramos;
+        }
+
+
+        foreach($semanas as $semana) {
+            //precio_tallo
+            $datos['precio_tallo'][$semana]['max'] = max($data['precio_tallo'][$semana]);
+            $datos['precio_tallo'][$semana]['prom'] = array_sum($data['precio_tallo'][$semana])/count($data['precio_tallo'][$semana]);
+
+            //precio_ramo
+            $datos['precio_ramo'][$semana]['max'] = max($data['precio_ramo'][$semana]);
+            $datos['precio_ramo'][$semana]['prom'] = array_sum($data['precio_ramo'][$semana])/count($data['precio_ramo'][$semana]);
+        }
+
+        //SE INGRESA EL DATO DE LA FINCA
+        $datoFinca = $objDatosFinca->where('id_usuario',session('id_usuario'));
+        foreach($datoFinca as $df){
+            //precio_ramo
+            $datos['precio_tallo'][$df->semana]['finca']= $df->venta/$df->tallos;
+
+            //precio_ramo
+            $ramos = $df->tallos/$df->calibre;
+            $datos['precio_ramo'][$df->semana]['finca']=$df->venta/$ramos;
+        }
+
+       sort($semanas);
+        return view('benchmark.partials.tabla_datos',[
+            'datos' => $datos,
+            'semanas' => $semanas
+        ]);
     }
 
     public function uploadFile(){

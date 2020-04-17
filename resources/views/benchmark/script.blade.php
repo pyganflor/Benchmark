@@ -3,12 +3,15 @@
     tabla();
 
     function tabla(){
-
         data={
             url : '{{url('benchmark/tabla')}}',
             type : 'GET',
             id  : 'tabla_benchmark',
-            datos :{}
+            datos :{
+                id_variedad : $("#id_variedad").val(),
+                desde : $("#desde").val(),
+                hasta : $("#hasta").val()
+            }
         };
         load_view(data)
     }
