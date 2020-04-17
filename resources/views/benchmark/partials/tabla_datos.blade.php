@@ -34,97 +34,25 @@
         </tr>
         <tr>
             <td style="font-size: 15px;">Precio tallo</td>
-            <td class="text-center bg-indicadores-custom">
-                <div class="width-div-span">
-                    <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
-                        25.56%
-                    </span>
-                    <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
-                        25.56%
-                    </span>
-                    <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
-                        25.56%
-                    </span>
-                </div>
-            </td>
-            <td class="text-center bg-indicadores-custom">
-                <div class="width-div-span">
-                    <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
-                        25.56%
-                    </span>
-                    <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
-                        25.56%
-                    </span>
-                    <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
-                        25.56%
-                    </span>
-                </div>
-            </td>
-            <td class="text-center bg-indicadores-custom">
-                <div class="width-div-span">
-                    <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
-                        25.56%
-                    </span>
-                    <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
-                        25.56%
-                    </span>
-                    <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
-                        25.56%
-                    </span>
-                </div>
-            </td>
-            <td class="text-center bg-indicadores-custom">
-                <div class="width-div-span">
-                    <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
-                        25.56%
-                    </span>
-                    <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
-                        25.56%
-                    </span>
-                    <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
-                        25.56%
-                    </span>
-                </div>
-            </td>
-            <td class="text-center bg-indicadores-custom">
-                <div class="width-div-span">
-                    <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
-                        25.56%
-                    </span>
-                    <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
-                        25.56%
-                    </span>
-                    <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
-                        25.56%
-                    </span>
-                </div>
-            </td>
-            <td class="text-center bg-indicadores-custom">
-                <div class="width-div-span">
-                    <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
-                        25.56%
-                    </span>
-                    <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
-                        25.56%
-                    </span>
-                    <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
-                        25.56%
-                    </span>
-                </div>
-            </td>
-            <td class="text-center bg-indicadores-custom">
-                <div class="width-div-span">
-                    <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
-                        25.56%
-                    </span>
-                    <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
-                        25.56%
-                    </span>
-                    <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
-                        25.56%
-                    </span>
-                </div>
-            </td>
+            @foreach($semanas as $semana)
+                <td class="text-center bg-indicadores-custom">
+                    <div class="width-div-span">
+                        @if(isset($datos['precio_tallo'][$semana]['finca']))
+                            <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
+                           ${{number_format($datos['precio_tallo'][$semana]['finca'],2,",",'.')}}
+                        </span>
+                            <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
+                            ${{number_format($datos['precio_tallo'][$semana]['prom'],2,",",'.')}}
+                        </span>
+                            <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
+                            ${{number_format($datos['precio_tallo'][$semana]['max'],2,",",'.')}}
+                        </span>
+                        @else
+                            No ingresado
+                        @endif
+                    </div>
+                </td>
+            @endforeach
         </tr>
         <tr>
             <td style="font-size: 15px;">Tallos x m<sup>2</sup></td>
