@@ -25,7 +25,10 @@ class BenchmarkController extends Controller
         $datos = [];
 
         $objDatosFinca = DatosFinca::whereBetween('semana',[$request->desde,$request->hasta])
-                            ->where('id_variedad',$request->id_variedad)->get();
+                            ->where(function($query) use ($request){
+                                if(isset($request->id_variedad))
+                                    $query->where('id_variedad',$request->id_variedad);
+                            })->get();
 
         $semanas =[];
         foreach ($objDatosFinca as $semana){
@@ -39,8 +42,20 @@ class BenchmarkController extends Controller
             $data['precio_tallo'][$dsf->semana][]= $dsf->venta/$dsf->tallos;
 
             //precio_ramo
-            $ramos = $dsf->tallos/$dsf->calibre;
-            $data['precio_ramo'][$dsf->semana][]=$dsf->venta/$ramos;
+            $ramos = $dsf->calibre > 0 ? $dsf->tallos/$dsf->calibre : 0;
+            $data['precio_ramo'][$dsf->semana][]= $ramos>0 ? $dsf->venta/$ramos : 0;
+
+            //ciclo
+            $data['ciclo'][$dsf->semana][] = $dsf->ciclo_anno*365;
+
+            //tallos x mt2
+            $data['tallos_x_mts2'][$dsf->semana][] = $dsf->area >0 ? $dsf->tallos/$dsf->area : 0;
+
+            //calibre
+            $data['calibre'][$dsf->semana][] = $dsf->calibre;
+
+            //productividad
+            $data['productividad'][$dsf->semana][]= $dsf->calibre> 0 ? $dsf->ciclo_anno*($ramos/$dsf->calibre) : 0;
         }
 
 
@@ -52,10 +67,27 @@ class BenchmarkController extends Controller
             //precio_ramo
             $datos['precio_ramo'][$semana]['max'] = max($data['precio_ramo'][$semana]);
             $datos['precio_ramo'][$semana]['prom'] = array_sum($data['precio_ramo'][$semana])/count($data['precio_ramo'][$semana]);
+
+            //ciclo
+            $datos['ciclo'][$semana]['max'] = max($data['ciclo'][$semana]);
+            $datos['ciclo'][$semana]['prom'] = array_sum($data['ciclo'][$semana])/count($data['ciclo'][$semana]);
+
+            //tallos x mt2
+            $datos['tallos_x_mts2'][$semana]['max'] = max($data['tallos_x_mts2'][$semana]);
+            $datos['tallos_x_mts2'][$semana]['prom'] = array_sum($data['tallos_x_mts2'][$semana])/count($data['tallos_x_mts2'][$semana]);
+
+            //calibre
+            $datos['calibre'][$semana]['max'] = max($data['calibre'][$semana]);
+            $datos['calibre'][$semana]['prom'] = array_sum($data['calibre'][$semana])/count($data['calibre'][$semana]);
+
+            //productividad
+            $datos['productividad'][$semana]['max'] = max($data['productividad'][$semana]);
+            $datos['productividad'][$semana]['prom'] = array_sum($data['productividad'][$semana])/count($data['productividad'][$semana]);
         }
 
         //SE INGRESA EL DATO DE LA FINCA
         $datoFinca = $objDatosFinca->where('id_usuario',session('id_usuario'));
+
         foreach($datoFinca as $df){
             //precio_ramo
             $datos['precio_tallo'][$df->semana]['finca']= $df->venta/$df->tallos;
@@ -63,9 +95,20 @@ class BenchmarkController extends Controller
             //precio_ramo
             $ramos = $df->tallos/$df->calibre;
             $datos['precio_ramo'][$df->semana]['finca']=$df->venta/$ramos;
+
+            //ciclo
+            $datos['ciclo'][$df->semana]['finca']=$df->ciclo_anno*365;
+
+            //tallos x mt2
+            $datos['tallos_x_mts2'][$df->semana]['finca']=$df->tallos/$df->area;
+
+            //calibre
+            $datos['calibre'][$df->semana]['finca'] = $df->calibre;
+
+            $datos['productividad'][$df->semana]['finca'] = $df->calibre > 0 ? $df->ciclo_anno*($ramos/$df->calibre) : 0;
         }
 
-       sort($semanas);
+        sort($semanas);
         return view('benchmark.partials.tabla_datos',[
             'datos' => $datos,
             'semanas' => $semanas

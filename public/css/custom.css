@@ -72,6 +72,14 @@
     left: -4px;
 }
 
+.icon-select-custom-dashboard{
+    position: absolute;
+    z-index: 999999;
+    top: 1.69rem;
+    padding: 8px 15px;
+    left: -4px;
+}
+
 .indicador1-custom{
     background: transparent;
     color:#00b388;
@@ -381,6 +389,14 @@ div.g-recaptcha div{
 .tooltip{
     z-index: 9999999999!important;
 }
+
+@media(min-width: 767px){
+    .tools-leyenda{
+        position: relative;
+        top: 26px;
+    }
+}
+
 
 @media(max-width:767px){
     .tools-leyenda{

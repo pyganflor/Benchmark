@@ -28,55 +28,58 @@
             <h3 class="card-title w-65">
                 <div class="form-row">
                     <div class="col-md-3 col-sm-6 mt-2 mt-md-0">
+                        <label class="label" style="font-size:15px">Planta</label>
                         <div class="input-group-prepend">
-                        <span class="input-group-text bg-silver-dark-custom all-round icon-select-custom">
-                            <i class="fas fa-cubes"></i>
+                        <span class="input-group-text bg-silver-dark-custom all-round icon-select-custom-dashboard">
+                           <i class="fas fa-seedling"></i>
                         </span>
                         </div>
                         <select class="select-custom form-control form-control-sm all-round font-weight-bold"
                                 id="planta_bechmark">
-                            <option selected disabled value="">Plantas</option>
+                            <option value="">seleccione</option>
                             @foreach($plantas as $planta)
                                 <option value="{{$planta->id_planta}}">{{$planta->nombre}}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="col-md-3 col-sm-6 mt-2 mt-md-0">
+                        <label class="label"  style="font-size:15px">Variedad</label>
                         <div class="input-group-prepend">
-                        <span class="input-group-text bg-silver-dark-custom all-round icon-select-custom">
-                            <i class="fas fa-cubes"></i>
-                        </span>
+                            <span class="input-group-text bg-silver-dark-custom all-round icon-select-custom-dashboard">
+                                <i class="fas fa-leaf"></i>
+                            </span>
                         </div>
                         <select class="select-custom form-control form-control-sm all-round font-weight-bold"
                                 id="id_variedad">
-                            <option selected disabled value="">Variedad</option>
+                            <option value="">Todas</option>
                         </select>
                     </div>
                     <div class="col-md-3 col-sm-6 mt-2 mt-md-0">
+                        <label class="label"  style="font-size:15px">Desde</label>
                         <div class="input-group-prepend">
-                        <span class="input-group-text bg-silver-dark-custom all-round icon-select-custom">
-                            <i class="far fa-calendar-alt"></i>
-                        </span>
+                            <span class="input-group-text bg-silver-dark-custom all-round icon-select-custom-dashboard">
+                                <i class="far fa-calendar-alt"></i>
+                            </span>
                         </div>
-                        <select class="select-custom form-control form-control-sm all-round font-weight-bold"
-                                id="desde">
-                            <option selected disabled value="">Desde</option>
-                            @foreach($semanas as $semana)
-                                <option value="{{$semana->semana}}">{{$semana->semana}}</option>
+                        <select class="select-custom form-control form-control-sm all-round font-weight-bold" id="desde">
+                            @foreach($semanas as $x =>  $semana)
+                                <option {{(count($semanas)-4) == ($x+1) ? 'selected' : ''}}
+                                    value="{{$semana->semana}}">{{$semana->semana}}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="col-md-3 col-sm-6 mt-2 mt-md-0">
+                        <label class="label" style="font-size:15px">Hasta</label>
                         <div class="input-group-prepend">
-                        <span class="input-group-text bg-silver-dark-custom all-round icon-select-custom">
-                            <i class="far fa-calendar-alt"></i>
-                        </span>
+                            <span class="input-group-text bg-silver-dark-custom all-round icon-select-custom-dashboard">
+                                <i class="far fa-calendar-alt"></i>
+                            </span>
                         </div>
                         <select class="select-custom form-control form-control-sm all-round font-weight-bold"
                                 id="hasta">
-                            <option selected disabled value="">Hasta</option>
-                            @foreach($semanas as $semana)
-                                <option value="{{$semana->semana}}">{{$semana->semana}}</option>
+                            @foreach($semanas as $x => $semana)
+                                <option {{$x==0 ? 'selected' : ''}}
+                                    value="{{$semana->semana}}">{{$semana->semana}}</option>
                             @endforeach
                         </select>
                     </div>
