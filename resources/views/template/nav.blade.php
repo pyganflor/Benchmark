@@ -1,7 +1,7 @@
 <!-- Navbar -->
 <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
     <div class="container">
-        <a href="/" class="navbar-brand">
+        <a href="{{(session('id_rol') === 3 || session('id_rol') ===1) ? 'planta_variedad' : '/'}}" class="navbar-brand">
             <img src="{{asset('img/logo_yura_brenchmark.png')}}" alt="Brenchmark Logo"
                  class="brand-image pr-1 border-right" style="opacity: .8">
         </a>

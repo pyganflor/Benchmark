@@ -37,13 +37,13 @@ class Autenticado
     public function rutasBloqueadas(){
         return [
             1 =>[ //Administrador
-                'benchmark','dashboard'
+                'benchmark','dashboard','/'
             ],
             2=>[ //Usuaurio (Finca)
 
             ],
             3=>[ //Sistemas (Super Administrador)
-                'benchmark','dashboard'
+                'benchmark','dashboard','/'
             ]
         ];
     }
