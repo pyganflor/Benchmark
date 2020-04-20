@@ -49,9 +49,9 @@ class LoginController extends Controller
             return redirect('login')->with('pass-fail', 'La contrasena no coincide');
         }
         if(session('id_rol') === 3 || session('id_rol') ===1)
-            return redirect('/');
-        else
             return redirect('planta_variedad');
+        else
+            return redirect('/');
     }
 
     public function logout(){
