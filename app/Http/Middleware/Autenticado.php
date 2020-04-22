@@ -34,6 +34,9 @@ class Autenticado
     }
 
 
+    /**
+     * @return array
+     */
     public function rutasBloqueadas(){
         return [
             1 =>[ //Administrador

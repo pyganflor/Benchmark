@@ -16,7 +16,6 @@ class LoginController extends Controller
     }
 
     public function acceder(Request $request){
-
         Validator::make($request->all(), [
             'usuario' => 'required|min:7|exists:usuario,nombre',
             'contrasena' => 'required|min:8',
@@ -48,10 +47,11 @@ class LoginController extends Controller
         }else{
             return redirect('login')->with('pass-fail', 'La contrasena no coincide');
         }
-        if(session('id_rol') === 3 || session('id_rol') ===1)
+        if(session('id_rol') === 3 || session('id_rol') ===1){
             return redirect('planta_variedad');
-        else
+        }else{
             return redirect('/');
+        }
     }
 
     public function logout(){

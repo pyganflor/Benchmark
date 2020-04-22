@@ -17,13 +17,13 @@
                 <div class="width-div-span">
                     @if(isset($datos['precio_ramo'][$semana]['finca']))
                         <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
-                           ${{number_format($datos['precio_ramo'][$semana]['finca'],2,",",'.')}}
+                           {{number_format($datos['precio_ramo'][$semana]['finca'],2,",",'.')}}
                         </span>
                         <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
-                            ${{number_format($datos['precio_ramo'][$semana]['prom'],2,",",'.')}}
+                            {{number_format($datos['precio_ramo'][$semana]['prom'],2,",",'.')}}
                         </span>
                         <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
-                            ${{number_format($datos['precio_ramo'][$semana]['max'],2,",",'.')}}
+                            {{number_format($datos['precio_ramo'][$semana]['max'],2,",",'.')}}
                         </span>
                     @else
                         No ingresado
@@ -39,13 +39,13 @@
                     <div class="width-div-span">
                         @if(isset($datos['precio_tallo'][$semana]['finca']))
                             <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
-                           ${{number_format($datos['precio_tallo'][$semana]['finca'],2,",",'.')}}
+                           {{number_format($datos['precio_tallo'][$semana]['finca'],2,",",'.')}}
                         </span>
                             <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
-                            ${{number_format($datos['precio_tallo'][$semana]['prom'],2,",",'.')}}
+                            {{number_format($datos['precio_tallo'][$semana]['prom'],2,",",'.')}}
                         </span>
                             <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
-                            ${{number_format($datos['precio_tallo'][$semana]['max'],2,",",'.')}}
+                            {{number_format($datos['precio_tallo'][$semana]['max'],2,",",'.')}}
                         </span>
                         @else
                             No ingresado
@@ -61,13 +61,13 @@
                     <div class="width-div-span">
                         @if(isset($datos['tallos_x_mts2'][$semana]['finca']))
                             <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
-                           ${{number_format($datos['tallos_x_mts2'][$semana]['finca'],2,",",'.')}}
+                           {{number_format($datos['tallos_x_mts2'][$semana]['finca'],2,",",'.')}}
                         </span>
                             <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
-                            ${{number_format($datos['tallos_x_mts2'][$semana]['prom'],2,",",'.')}}
+                            {{number_format($datos['tallos_x_mts2'][$semana]['prom'],2,",",'.')}}
                         </span>
                             <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
-                            ${{number_format($datos['tallos_x_mts2'][$semana]['max'],2,",",'.')}}
+                            {{number_format($datos['tallos_x_mts2'][$semana]['max'],2,",",'.')}}
                         </span>
                         @else
                             No ingresado
@@ -83,13 +83,13 @@
                     <div class="width-div-span">
                         @if(isset($datos['productividad'][$semana]['finca']))
                             <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
-                           ${{number_format($datos['productividad'][$semana]['finca'],2,",",'.')}}
+                           {{number_format($datos['productividad'][$semana]['finca'],2,",",'.')}}
                         </span>
                             <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
-                            ${{number_format($datos['productividad'][$semana]['prom'],2,",",'.')}}
+                            {{number_format($datos['productividad'][$semana]['prom'],2,",",'.')}}
                         </span>
                             <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
-                            ${{number_format($datos['productividad'][$semana]['max'],2,",",'.')}}
+                            {{number_format($datos['productividad'][$semana]['max'],2,",",'.')}}
                         </span>
                         @else
                             No ingresado
@@ -105,13 +105,13 @@
                     <div class="width-div-span">
                         @if(isset($datos['ciclo'][$semana]['finca']))
                             <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
-                           ${{number_format($datos['ciclo'][$semana]['finca'],2,",",'.')}}
+                           {{number_format($datos['ciclo'][$semana]['finca'],2,",",'.')}}
                         </span>
                             <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
-                            ${{number_format($datos['ciclo'][$semana]['prom'],2,",",'.')}}
+                            {{number_format($datos['ciclo'][$semana]['prom'],2,",",'.')}}
                         </span>
                             <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
-                            ${{number_format($datos['ciclo'][$semana]['max'],2,",",'.')}}
+                            {{number_format($datos['ciclo'][$semana]['max'],2,",",'.')}}
                         </span>
                         @else
                             No ingresado
@@ -127,13 +127,13 @@
                     <div class="width-div-span">
                         @if(isset($datos['calibre'][$semana]['finca']))
                             <span class="badge badge-pill indicador1-custom bnt-round m-1 p-1">
-                           ${{number_format($datos['calibre'][$semana]['finca'],2,",",'.')}}
+                           {{number_format($datos['calibre'][$semana]['finca'],2,",",'.')}}
                         </span>
                             <span class="badge badge-pill indicador2-custom bnt-round m-1 p-1">
-                            ${{number_format($datos['calibre'][$semana]['prom'],2,",",'.')}}
+                            {{number_format($datos['calibre'][$semana]['prom'],2,",",'.')}}
                         </span>
                             <span class="badge badge-pill indicador3-custom bnt-round m-1 p-1">
-                            ${{number_format($datos['calibre'][$semana]['max'],2,",",'.')}}
+                            {{number_format($datos['calibre'][$semana]['max'],2,",",'.')}}
                         </span>
                         @else
                             No ingresado

@@ -46,7 +46,7 @@ class BenchmarkController extends Controller
             $data['precio_ramo'][$dsf->semana][]= $ramos>0 ? $dsf->venta/$ramos : 0;
 
             //ciclo
-            $data['ciclo'][$dsf->semana][] = $dsf->ciclo_anno*365;
+            $data['ciclo'][$dsf->semana][] = 365/$dsf->ciclo_anno;
 
             //tallos x mt2
             $data['tallos_x_mts2'][$dsf->semana][] = $dsf->area >0 ? $dsf->tallos/$dsf->area : 0;
@@ -97,7 +97,7 @@ class BenchmarkController extends Controller
             $datos['precio_ramo'][$df->semana]['finca']=$df->venta/$ramos;
 
             //ciclo
-            $datos['ciclo'][$df->semana]['finca']=$df->ciclo_anno*365;
+            $datos['ciclo'][$df->semana]['finca']=365/$df->ciclo_anno;
 
             //tallos x mt2
             $datos['tallos_x_mts2'][$df->semana]['finca']=$df->tallos/$df->area;
@@ -131,7 +131,6 @@ class BenchmarkController extends Controller
             ['id_planta',$request->id_planta],
             ['estado',1]
         ])->select('id_variedad','nombre')->get();
-
     }
 
     public function storeDataFile(Request $request){
