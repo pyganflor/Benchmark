@@ -390,13 +390,17 @@ div.g-recaptcha div{
     z-index: 9999999999!important;
 }
 
+.bg-table-indicador{
+    background: #00B388;
+    color: white;
+}
+
 @media(min-width: 767px){
     .tools-leyenda{
         position: relative;
         top: 26px;
     }
 }
-
 
 @media(max-width:767px){
     .tools-leyenda{

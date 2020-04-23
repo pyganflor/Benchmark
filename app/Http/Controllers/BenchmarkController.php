@@ -16,14 +16,18 @@ class BenchmarkController extends Controller
     public function inicio(){
         return view('benchmark.inicio',[
             'semanas'=> DatosFinca::select('semana')->orderBy('semana','desc')->distinct()->get(),
-            'plantas' => Planta::where('estado',true)->select('nombre','id_planta')->get()
+            'plantas' => VariedadUsuario::where([
+                ['variedad_usuario.id_usuario',session('id_usuario')],
+                ['variedad_usuario.estado',true]
+            ])->join('variedad as v','variedad_usuario.id_variedad','v.id_variedad')
+                ->join('planta as p','v.id_planta','p.id_planta')
+                ->select('p.id_planta','p.nombre')->distinct()->get()
         ]);
     }
 
     public function tabla(Request $request){
 
         $datos = [];
-
         $objDatosFinca = DatosFinca::whereBetween('semana',[$request->desde,$request->hasta])
                             ->where(function($query) use ($request){
                                 if(isset($request->id_variedad))
@@ -168,9 +172,11 @@ class BenchmarkController extends Controller
 
     public function optionsVariedades(Request $request){
         return Variedad::where([
-            ['id_planta',$request->id_planta],
-            ['estado',1]
-        ])->select('id_variedad','nombre')->get();
+            ['variedad.id_planta',$request->id_planta],
+            ['variedad.estado',1],
+            ['vu.id_usuario',session('id_usuario')]
+        ])->join('variedad_usuario as vu','variedad.id_variedad','vu.id_variedad')
+            ->select('variedad.id_variedad','variedad.nombre')->distinct()->get();
     }
 
     public function storeDataFile(Request $request){

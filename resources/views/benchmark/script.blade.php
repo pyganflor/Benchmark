@@ -52,7 +52,6 @@
                 id_planta : this.value
             },
             success: function(response){
-                console.log(response);
                 $.each(response,function(i,j){
                     $("select#id_variedad").append("<option class='option_dinamic' value='"+j.id_variedad+"'>"+j.nombre+"</option>");
                 });

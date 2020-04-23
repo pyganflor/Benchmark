@@ -133,41 +133,62 @@
         </div>
     </div>
 </div>--}}
-
 <div class="row">
     <div class="col-12 font-weight-bold " style="font-size: 1.5rem">Indicadores</div>
-    <div class="card bg-gradient-white card-indicadores col-md col-sm-6 text-center ml-md-2 mr-md-2 ml-sm-0 mr-sm-0">
-        <span class="mt-3 nombre_indicador">Indicador 1</span>
+    <div class="card bg-gradient-white card-indicadores col-md col-sm-6 text-center ml-md-2 mr-md-2 ml-sm-0 mr-sm-0"
+         onclick="indicador(1)">
+        <span class="mt-3 nombre_indicador">Calibre</span>
         <hr class="w-75 p-0" style="margin: 0 auto;" />
-        <span class="font-weight-bold " ><span class="numero-indicador">144.06</span><small> (3.2)</small></span><br/>
+        <span class="font-weight-bold " ><span class="numero-indicador">{{number_format($promIndicadores->calibre,2)}}</span></span><br/>
+        <span style="color:#00B388" >
+            Ver mas <i class="far fa-arrow-alt-circle-right"></i>
+        </span>
+    </div>
+    <div class="card bg-gradient-white card-indicadores col-md col-sm-6 text-center ml-md-2 mr-md-2 ml-sm-0 mr-sm-0"
+         onclick="indicador(2)">
+        <span class="mt-3 nombre_indicador">Ciclo</span>
+        <hr class="w-75 p-0" style="margin: 0 auto;" />
+        <span class="font-weight-bold " >
+            <span class="numero-indicador">{{number_format($promIndicadores->ciclo,2)}}</span>
+        </span><br/>
         <span style="color:#00B388"> Ver mas <i class="far fa-arrow-alt-circle-right"></i></span>
     </div>
-    <div class="card bg-gradient-white card-indicadores col-md col-sm-6 text-center ml-md-2 mr-md-2 ml-sm-0 mr-sm-0">
-        <span class="mt-3 nombre_indicador">Indicador 1</span>
+    <div class="card bg-gradient-white card-indicadores col-md col-sm-6 text-center ml-md-2 mr-md-2 ml-sm-0 mr-sm-0"
+         onclick="indicador(3)">
+        <span class="mt-3 nombre_indicador">Precio ramo</span>
         <hr class="w-75 p-0" style="margin: 0 auto;" />
-        <span class="font-weight-bold " ><span class="numero-indicador">144.06</span><small> (3.2)</small></span><br/>
+        <span class="font-weight-bold " >
+            <span class="numero-indicador">{{number_format(($promIndicadores->dinero/$promIndicadores->ramos),2)}}</span>
+        </span><br/>
         <span style="color:#00B388"> Ver mas <i class="far fa-arrow-alt-circle-right"></i></span>
     </div>
-    <div class="card bg-gradient-white card-indicadores col-md col-sm-6 text-center ml-md-2 mr-md-2 ml-sm-0 mr-sm-0">
-        <span class="mt-3 nombre_indicador">Indicador 1</span>
+    <div class="card bg-gradient-white card-indicadores col-md col-sm-6 text-center ml-md-2 mr-md-2 ml-sm-0 mr-sm-0"
+         onclick="indicador(4)">
+        <span class="mt-3 nombre_indicador">Precio tallo</span>
         <hr class="w-75 p-0" style="margin: 0 auto;" />
-        <span class="font-weight-bold " ><span class="numero-indicador">144.06</span><small> (3.2)</small></span><br/>
+        <span class="font-weight-bold " ><span class="numero-indicador">{{number_format($promIndicadores->precio_tallo,2)}}</span></span><br/>
         <span style="color:#00B388"> Ver mas <i class="far fa-arrow-alt-circle-right"></i></span>
     </div>
-    <div class="card bg-gradient-white card-indicadores col-md col-sm-6 text-center ml-md-2 mr-md-2 ml-sm-0 mr-sm-0">
-        <span class="mt-3 nombre_indicador">Indicador 1</span>
+    <div class="card bg-gradient-white card-indicadores col-md col-sm-6 offset-sm-3 offset-md-0 text-center ml-md-2 mr-md-2 ml-sm-0 mr-sm-0"
+         onclick="indicador(5)">
+        <span class="mt-3 nombre_indicador">Productividad</span>
         <hr class="w-75 p-0" style="margin: 0 auto;" />
-        <span class="font-weight-bold " ><span class="numero-indicador">144.06</span><small> (3.2)</small></span><br/>
+        <span class="font-weight-bold " >
+            <span class="numero-indicador">{{number_format((($promIndicadores->ramos/$promIndicadores->area)*$promIndicadores->ciclo_anno),2)}}</span>
+        </span><br/>
         <span style="color:#00B388"> Ver mas <i class="far fa-arrow-alt-circle-right"></i></span>
     </div>
-    <div class="card bg-gradient-white card-indicadores col-md col-sm-6 offset-sm-3 offset-md-0 text-center ml-md-2 mr-md-2 ml-sm-0 mr-sm-0">
-        <span class="mt-3 nombre_indicador">Indicador 1</span>
+    <div class="card bg-gradient-white card-indicadores col-md col-sm-6 offset-sm-3 offset-md-0 text-center ml-md-2 mr-md-2 ml-sm-0 mr-sm-0"
+         onclick="indicador(6)">
+        <span class="mt-3 nombre_indicador">Tallos x m<sup>2</sup></span>
         <hr class="w-75 p-0" style="margin: 0 auto;" />
-        <span class="font-weight-bold " ><span class="numero-indicador">144.06</span><small> (3.2)</small></span><br/>
+        <span class="font-weight-bold " >
+            <span class="numero-indicador">{{number_format($promIndicadores->tallos_m_cuadrado,2)}}</span>
+        </span><br/>
         <span style="color:#00B388"> Ver mas <i class="far fa-arrow-alt-circle-right"></i></span>
     </div>
 </div>
-<div class="row ">
+<div class="row">
     <div class="col-12 font-weight-bold " style="font-size: 1.5rem">Gráficas</div>
     <div class="col-12 bg-gradient-white">
         <div class="row p-3">
@@ -177,11 +198,18 @@
                         <div class="input-group">
                             <div class="input-group-prepend">
                             <span class="input-group-text bg-silver-dark-custom all-round icon-select-dashboard">
-                                <i class="far fa-calendar-alt"></i> Rango
+                                Indicador
                             </span>
                             </div>
-                            <select class="select-custom form-control form-control-sm all-round font-weight-bold ml-5">
-                                <option value="">Rango</option>
+                            <select class="select-custom form-control form-control-sm all-round font-weight-bold"
+                                    style="margin-left: 35px;">
+                                <option value="1">Calibre</option>
+                                <option value="2">Ciclo</option>
+                                <option value="3">Precio ramo</option>
+                                <option value="4">Precio tallo</option>
+                                <option value="5">Productividad</option>
+                                <option value="6">Tallos m2</option>
+
                             </select>
                         </div>
                     </div>
@@ -189,11 +217,14 @@
                         <div class="input-group">
                             <div class="input-group-prepend">
                             <span class="input-group-text bg-silver-dark-custom all-round icon-select-dashboard">
-                                <i class="fas fa-seedling"></i> Variedad
+                                Planta
                             </span>
                             </div>
-                            <select class="select-custom form-control form-control-sm all-round font-weight-bold ml-5">
-                                <option value="">Variedad</option>
+                            <select class="select-custom form-control form-control-sm all-round font-weight-bold"
+                                    style="margin-left: 25px;" onchange="planta_dashboard()">
+                                @foreach($plantas as $planta)
+                                <option value="{{$planta->id_planta}}">{{$planta->nombre}}</option>
+                                    @endforeach
                             </select>
                         </div>
                     </div>
@@ -201,11 +232,11 @@
                         <div class="input-group">
                             <div class="input-group-prepend">
                             <span class="input-group-text bg-silver-dark-custom all-round icon-select-dashboard">
-                                <i class="fas fa-leaf"></i> Tipo
+                                Variedad
                             </span>
                             </div>
-                            <select class="select-custom form-control form-control-sm all-round font-weight-bold ml-5">
-                                <option value="">Tipo</option>
+                            <select class="select-custom form-control form-control-sm all-round font-weight-bold ml-5"
+                                    id="id_variedad">
                             </select>
                         </div>
                     </div>
@@ -213,47 +244,72 @@
                         <div class="input-group">
                             <div class="input-group-prepend">
                             <span class="input-group-text bg-silver-dark-custom all-round icon-select-dashboard">
-                                <i class="far fa-calendar-alt"></i> Años
+                                Desde
                             </span>
                             </div>
                             <select class="select-custom form-control form-control-sm all-round font-weight-bold ml-5">
-                                <option value="">Años</option>
+                                @foreach($semanas as $x =>  $semana)
+                                    <option {{count($semanas) <= 8 ? (($x+1)==count($semanas) ? 'selected':'') : (count($semanas)-4) == ($x+1) ? 'selected' : ''}}
+                                            value="{{$semana->semana}}">{{$semana->semana}}</option>
+                                @endforeach
                             </select>
                         </div>
+                    </div>
+                    <div class="col-md col-sm-6 mt-2 mb-2">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                            <span class="input-group-text bg-silver-dark-custom all-round icon-select-dashboard">
+                                Hasta
+                            </span>
+                            </div>
+                            <select class="select-custom form-control form-control-sm all-round font-weight-bold ml-5">
+                                @foreach($semanas as $x => $semana)
+                                    <option {{$x==0 ? 'selected' : ''}}
+                                            value="{{$semana->semana}}">{{$semana->semana}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-1 col-sm-6 mt-2 mb-2 text-center">
+                        <button type="button" class="btn btn-sm btn-green-custom bnt-round p-1">
+                            Buscar <i class="fas fa-search"></i>
+                        </button>
                     </div>
                 </div>
             </div>
-            <div class="col-md-8">
-                <div class="chart">
-                    <canvas id="lineChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-                </div>
+            <div class="col-md-8" id="div_grafica">
+
             </div>
             <div class="col-md-4">
                 <div class="card mt-4">
                     <div class="card shadow text-center bg-green-card-dashboard p-2" >
-                        <i class="far fa-calendar-alt"> <span style="font-family: sans-serif;">Semana 2011</span></i>
+                        <i class="far fa-calendar-alt"> <span style="font-family: sans-serif;">Semana {{$ultimaSemanaIndicador->semana}}</span></i>
                     </div>
                     <div class="mt-3 p-3">
-                        <table class="w-100 text-center font-weight-bold ">
+                        <table class="w-100 font-weight-bold ">
                             <tr>
-                                <td> Ind 1</td>
-                                <td>Dato</td>
+                                <td>Calibre</td>
+                                <td class="text-center">{{number_format($ultimaSemanaIndicador->calibre,2)}}</td>
                             </tr>
                             <tr>
-                                <td>Ind 2</td>
-                                <td>Dato</td>
+                                <td>Ciclo</td>
+                                <td class="text-center">{{number_format($ultimaSemanaIndicador->ciclo,2)}}</td>
                             </tr>
                             <tr>
-                                <td>Ind 3</td>
-                                <td>Dato</td>
+                                <td>Precio ramo</td>
+                                <td class="text-center">{{$ultimaSemanaIndicador->ramos > 0 ? number_format($ultimaSemanaIndicador->venta/$ultimaSemanaIndicador->ramos,2) : 0}}</td>
                             </tr>
                             <tr>
-                                <td>Ind 4</td>
-                                <td>Dato</td>
+                                <td>Precio tallo</td>
+                                <td class="text-center">{{number_format($ultimaSemanaIndicador->precio_tallo,2)}}</td>
                             </tr>
                             <tr>
-                                <td>Ind 5</td>
-                                <td>Dato</td>
+                                <td>Productividad</td>
+                                <td class="text-center">{{$ultimaSemanaIndicador->area > 0 ? number_format(($ultimaSemanaIndicador->ramos/$ultimaSemanaIndicador->area)*$ultimaSemanaIndicador->ciclo_anno,2) :0}}</td>
+                            </tr>
+                            <tr>
+                                <td>Tallos x m<sup>2</sup></td>
+                                <td class="text-center">{{number_format($ultimaSemanaIndicador->tallos_m_cuadrado,2)}}</td>
                             </tr>
                         </table>
                     </div>
@@ -262,71 +318,6 @@
         </div>
     </div>
 </div>
-<script src="{{asset('js/Chart.min.js')}}"></script>
 <script>
-    var areaChartData = {
-        labels  : ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-        datasets: [
-            {
-                label               : 'Ind 1',
-                borderColor         : 'rgba(60,141,188,0.8)',
-                pointColor          : '#3b8bba',
-                pointStyle          : 'circle',
-                hitRadius           : 5,
-                pointStrokeColor    : 'rgba(60,141,188,1)',
-                pointBackgroundColor: 'rgba(60,141,188,1)',
-                pointHighlightFill  : '#fff',
-                pointHighlightStroke: 'rgba(60,141,188,1)',
-                data                : [28, 48, 40, 19, 86, 27, 90]
-            },
-            {
-                label               : 'Ind 2',
-                borderColor         : 'rgba(210, 214, 222, 1)',
-                hitRadius           : 5,
-                pointColor          : 'rgba(210, 214, 222, 1)',
-                pointBackgroundColor: 'rgba(60,141,188,1)',
-                pointStrokeColor    : '#c1c7d1',
-                pointHighlightFill  : '#fff',
-                pointHighlightStroke: 'rgba(220,220,220,1)',
-                data                : [65, 59, 80, 81, 100, 55, 40]
-            },
-        ]
-    }
-
-    var areaChartOptions = {
-        maintainAspectRatio : false,
-        responsive : true,
-        legend: {
-            display: true,
-            position: 'bottom'
-        },
-        scales: {
-            xAxes: [{
-                gridLines : {
-                    display : true,
-                }
-            }],
-            yAxes: [{
-                gridLines : {
-                    display : true,
-                }
-            }]
-        }
-    }
-
-    //-------------
-    //- LINE CHART -
-    //--------------
-    var lineChartCanvas = $('#lineChart').get(0).getContext('2d')
-    var lineChartOptions = jQuery.extend(true, {}, areaChartOptions)
-    var lineChartData = jQuery.extend(true, {}, areaChartData)
-    lineChartData.datasets[0].fill = false;
-    lineChartData.datasets[1].fill = false;
-    lineChartOptions.datasetFill = false;
-
-    var lineChart = new Chart(lineChartCanvas, {
-        type: 'line',
-        data: lineChartData,
-        options: lineChartOptions
-    })
+    planta_dashboard()
 </script>
