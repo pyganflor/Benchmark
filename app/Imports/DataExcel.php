@@ -18,7 +18,7 @@ class DataExcel implements ToModel, WithValidation, SkipsOnFailure,WithHeadingRo
         return [
             'Semana' =>'required|numeric',
             'Variedad' =>'required|exists:variedad,nombre',
-            'Área' =>'required|numeric',
+            'Área mt2' =>'required|numeric',
             'Tallos cosechados' =>'required|numeric',
             'Cajas exportadas' =>'required|numeric',
             'Calibre' =>'required|numeric',
@@ -26,6 +26,10 @@ class DataExcel implements ToModel, WithValidation, SkipsOnFailure,WithHeadingRo
             'Ciclo año' =>'required|numeric',
             'Variedad' => function($attribute,$value, $onFailure) {
                 $variedad = Variedad::where('nombre',$value)->select('id_variedad')->first();
+                if(!isset($variedad)){
+                    $onFailure('La variedad '.$value.' no existe en el sistema');
+                    return;
+                }
                 $variedadUsuario = VariedadUsuario::where([
                     ['id_usuario',session('id_usuario')],
                     ['id_variedad',$variedad->id_variedad]
@@ -42,13 +46,13 @@ class DataExcel implements ToModel, WithValidation, SkipsOnFailure,WithHeadingRo
             'Semana.numeric' => 'La colmuna :attribute debe ser un numero',
             'Variedad.required' => 'La colmuna :attribute está vacía',
             'Variedad.exists' => 'El dato de la colmuna :attribute no esta registrado en la base de datos',
-            'Área.required' => 'La colmuna :attribute está vacía',
+            'Área mt2.required' => 'La colmuna :attribute está vacía',
             'Tallos cosechados.required' => 'La colmuna :attribute está vacía',
             'Cajas exportadas.required' => 'La colmuna :attribute está vacía',
             'Calibre.required' => 'La colmuna :attribute está vacía',
             'Ventas totales.required' => 'La colmuna :attribute está vacía',
             'Ciclos año.required' =>'La colmuna :attribute está vacía',
-            'Área.numeric' => 'La colmuna :attribute debe ser un número',
+            'Área mt2.numeric' => 'La colmuna :attribute debe ser un número',
             'Tallos cosechados.numeric' => 'La colmuna :attribute debe ser un número',
             'Cajas exportadas.numeric' => 'La colmuna :attribute debe ser un número',
             'Calibre.numeric' => 'La colmuna :attribute debe ser un número',
@@ -67,7 +71,7 @@ class DataExcel implements ToModel, WithValidation, SkipsOnFailure,WithHeadingRo
             ->where('semana', $row['Semana'])->first();
 
         if (isset($objDatosFinca)) {
-            $objDatosFinca->area = $row['Área'];
+            $objDatosFinca->area = $row['Área mt2'];
             $objDatosFinca->tallos = $row['Tallos cosechados'];
             $objDatosFinca->cajas = $row['Cajas exportadas'];
             $objDatosFinca->calibre = $row['Calibre'];
@@ -79,7 +83,7 @@ class DataExcel implements ToModel, WithValidation, SkipsOnFailure,WithHeadingRo
                 'id_usuario' => session('id_usuario'),
                 'id_variedad' => $variedad->id_variedad,
                 'semana' => $row['Semana'],
-                'area' => $row['Área'],
+                'area' => $row['Área mt2'],
                 'tallos' => $row['Tallos cosechados'],
                 'cajas' => $row['Cajas exportadas'],
                 'calibre' => $row['Calibre'],
@@ -94,7 +98,7 @@ class DataExcel implements ToModel, WithValidation, SkipsOnFailure,WithHeadingRo
         return [
             'Semana' => 'Semana',
             'Variedad' => 'Variedad',
-            'Área' => 'Área',
+            'Área mt2' => 'Área mt2',
             'Tallos cosechados' => 'Tallos cosechados',
             'Cajas exportadas' => 'Cajas exportadas',
             'Calibre' => 'Calibre',

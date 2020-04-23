@@ -63,7 +63,7 @@
                         </div>
                         <select class="select-custom form-control form-control-sm all-round font-weight-bold" id="desde">
                             @foreach($semanas as $x =>  $semana)
-                                <option {{(count($semanas)-4) == ($x+1) ? 'selected' : ''}}
+                                <option {{count($semanas) <= 8 ? (($x+1)==count($semanas) ? 'selected':'') : (count($semanas)-4) == ($x+1) ? 'selected' : ''}}
                                     value="{{$semana->semana}}">{{$semana->semana}}</option>
                             @endforeach
                         </select>

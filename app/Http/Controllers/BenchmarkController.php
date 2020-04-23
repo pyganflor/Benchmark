@@ -49,16 +49,39 @@ class BenchmarkController extends Controller
             $data['ciclo'][$dsf->semana][] = 365/$dsf->ciclo_anno;
 
             //tallos x mt2
-            $data['tallos_x_mts2'][$dsf->semana][] = $dsf->area >0 ? $dsf->tallos/$dsf->area : 0;
+            $data['tallos_x_mts2'][$dsf->semana][] = $dsf->area > 0 ? $dsf->tallos/$dsf->area : 0;
 
             //calibre
             $data['calibre'][$dsf->semana][] = $dsf->calibre;
 
             //productividad
-            $data['productividad'][$dsf->semana][]= $dsf->calibre> 0 ? $dsf->ciclo_anno*($ramos/$dsf->calibre) : 0;
+            $data['productividad'][$dsf->semana][] = $dsf->ciclo_anno*($ramos/$dsf->area);
+
+            /*$semanasPasadas = $this->cuatroSemanasPasadas($dsf->semana);
+            $sumRamos = 0;
+            $sumArea = 0;
+            $sumCicloAnno = 0;
+            $dataUsuarioSemana =[];
+            $dataFincaSemanaPasada = $objDatosFinca->whereIn('semana',$semanasPasadas);
+                $dataUsuarioSemana[$item->id_usuario][$item->semana]=[
+                    'tallos'=>$item->tallos,
+                    'calibre' =>$item->calibre,
+                    'ciclo_anno' => $item->ciclo_anno,
+                    'area' => $item->area
+                ];
+            }*/
+
+            /*foreach ($dataFincaSemanaPasada as $dfsp) {
+                $sumRamos += ($dfsp->tallos/$dfsp->calibre);
+                $sumArea+= $dfsp->area;
+                $sumCicloAnno += $dfsp->ciclo_anno;
+            }
+            $promCicloAnno = $sumCicloAnno/count($semanasPasadas);
+            dump('semana: '.$dsf->semana.' promciclo:'.$promCicloAnno. ' sumRamos: '.$sumRamos.' sumArea: '.$sumArea.' total: '.$promCicloAnno*($sumRamos/$sumArea) );
+            $data['productividad'][$dsf->semana][] = $promCicloAnno*($sumRamos/$sumArea);/*$dsf->calibre> 0 ? $dsf->ciclo_anno*($ramos/$dsf->calibre) : 0;*/
         }
 
-
+        //SE OBTIENE EL MÁXIMO Y EL PROMEDIO
         foreach($semanas as $semana) {
             //precio_tallo
             $datos['precio_tallo'][$semana]['max'] = max($data['precio_tallo'][$semana]);
@@ -81,6 +104,7 @@ class BenchmarkController extends Controller
             $datos['calibre'][$semana]['prom'] = array_sum($data['calibre'][$semana])/count($data['calibre'][$semana]);
 
             //productividad
+            //dump($data['productividad'][$semana]);
             $datos['productividad'][$semana]['max'] = max($data['productividad'][$semana]);
             $datos['productividad'][$semana]['prom'] = array_sum($data['productividad'][$semana])/count($data['productividad'][$semana]);
         }
@@ -105,7 +129,23 @@ class BenchmarkController extends Controller
             //calibre
             $datos['calibre'][$df->semana]['finca'] = $df->calibre;
 
-            $datos['productividad'][$df->semana]['finca'] = $df->calibre > 0 ? $df->ciclo_anno*($ramos/$df->calibre) : 0;
+            //productividad
+            $datos['productividad'][$df->semana]['finca'] = $df->calibre > 0 ? $df->ciclo_anno*($ramos/$df->area) : 0;
+
+            /*$semanasPasadas = $this->cuatroSemanasPasadas($df->semana);
+            $sumRamos = 0;
+            $sumArea = 0;
+            $sumCicloAnno = 0;
+            $dataFincaSemanaPasada = $datoFinca->whereIn('semana',$semanasPasadas);
+            foreach ($dataFincaSemanaPasada as $dfsp) {
+                $sumRamos += ($dfsp->tallos/$dfsp->calibre);
+                $sumArea+= $dfsp->area;
+                $sumCicloAnno += $dfsp->ciclo_anno;
+            }
+            $promCicloAnno = $sumCicloAnno/count($semanasPasadas);
+
+            $datos['productividad'][$df->semana]['finca'] = $promCicloAnno*($sumRamos/$sumArea);*/
+
         }
 
         sort($semanas);
@@ -135,7 +175,7 @@ class BenchmarkController extends Controller
 
     public function storeDataFile(Request $request){
 
-        $importar = new DataExcel();
+        $importar = new DataExcel;
         $importar->import($request->file('archivo_excel'));
 
         if(count($importar->failures())>0){
@@ -274,5 +314,10 @@ class BenchmarkController extends Controller
             }
         }
         return $semanas;
+    }
+
+    public function cuatroSemanasPasadas($semana){
+        return DatosFinca::where('semana','<=',$semana)->orderBy('semana','desc')
+            ->select('semana')->distinct()->take(4)->pluck('semana');
     }
 }
