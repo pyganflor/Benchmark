@@ -47,7 +47,7 @@
     </div>
     <div class="form-row mt-3 mb-4">
         <div class="col-md-2 col-sm-6 col-xs-6">
-            <label class="label label-sm">Área</label>
+            <label class="label label-sm">Área m<sup>2</sup></label>
             <input type="number" id="area" name="area" required
                    class="form-control form-control-sm text-center input-datos-manual-custom">
         </div>
@@ -110,8 +110,9 @@
                     }
                 };
                 request_ajax(data, function () {
-                    tabla();
+                    //tabla();
                     close_dialog();
+                    location.reload();
                 });
             });
         }
@@ -150,7 +151,6 @@
                 '           <option value="{{$semana->semana}}">{{$semana->semana}}</option>' +
                 '      @endforeach' +
                 '   </select>';
-
         }
         $("#input-semana").append(html);
     });

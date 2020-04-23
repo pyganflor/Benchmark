@@ -18,7 +18,7 @@ class DataExcel implements ToModel, WithValidation, SkipsOnFailure,WithHeadingRo
         return [
             'Semana' =>'required|numeric',
             'Variedad' =>'required|exists:variedad,nombre',
-            'Área mt2' =>'required|numeric',
+            'Área m2' =>'required|numeric',
             'Tallos cosechados' =>'required|numeric',
             'Cajas exportadas' =>'required|numeric',
             'Calibre' =>'required|numeric',
@@ -46,13 +46,13 @@ class DataExcel implements ToModel, WithValidation, SkipsOnFailure,WithHeadingRo
             'Semana.numeric' => 'La colmuna :attribute debe ser un numero',
             'Variedad.required' => 'La colmuna :attribute está vacía',
             'Variedad.exists' => 'El dato de la colmuna :attribute no esta registrado en la base de datos',
-            'Área mt2.required' => 'La colmuna :attribute está vacía',
+            'Área m2.required' => 'La colmuna :attribute está vacía',
             'Tallos cosechados.required' => 'La colmuna :attribute está vacía',
             'Cajas exportadas.required' => 'La colmuna :attribute está vacía',
             'Calibre.required' => 'La colmuna :attribute está vacía',
             'Ventas totales.required' => 'La colmuna :attribute está vacía',
             'Ciclos año.required' =>'La colmuna :attribute está vacía',
-            'Área mt2.numeric' => 'La colmuna :attribute debe ser un número',
+            'Área m2.numeric' => 'La colmuna :attribute debe ser un número',
             'Tallos cosechados.numeric' => 'La colmuna :attribute debe ser un número',
             'Cajas exportadas.numeric' => 'La colmuna :attribute debe ser un número',
             'Calibre.numeric' => 'La colmuna :attribute debe ser un número',
@@ -71,7 +71,7 @@ class DataExcel implements ToModel, WithValidation, SkipsOnFailure,WithHeadingRo
             ->where('semana', $row['Semana'])->first();
 
         if (isset($objDatosFinca)) {
-            $objDatosFinca->area = $row['Área mt2'];
+            $objDatosFinca->area = $row['Área m2'];
             $objDatosFinca->tallos = $row['Tallos cosechados'];
             $objDatosFinca->cajas = $row['Cajas exportadas'];
             $objDatosFinca->calibre = $row['Calibre'];
@@ -83,7 +83,7 @@ class DataExcel implements ToModel, WithValidation, SkipsOnFailure,WithHeadingRo
                 'id_usuario' => session('id_usuario'),
                 'id_variedad' => $variedad->id_variedad,
                 'semana' => $row['Semana'],
-                'area' => $row['Área mt2'],
+                'area' => $row['Área m2'],
                 'tallos' => $row['Tallos cosechados'],
                 'cajas' => $row['Cajas exportadas'],
                 'calibre' => $row['Calibre'],
@@ -98,7 +98,7 @@ class DataExcel implements ToModel, WithValidation, SkipsOnFailure,WithHeadingRo
         return [
             'Semana' => 'Semana',
             'Variedad' => 'Variedad',
-            'Área mt2' => 'Área mt2',
+            'Área m2' => 'Área m2',
             'Tallos cosechados' => 'Tallos cosechados',
             'Cajas exportadas' => 'Cajas exportadas',
             'Calibre' => 'Calibre',

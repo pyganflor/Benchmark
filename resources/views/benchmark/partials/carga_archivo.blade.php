@@ -36,7 +36,6 @@
                     type: 'POST',
                     data: formData,
                     success: function(response){
-                        console.log(response);
                         if(response.success){
                             response.alert == 1
                                 ? class_alert ='alert-success'
@@ -53,6 +52,7 @@
                                 columnClass: 'col-md-6',
                                 onClose: function () {
                                     close_dialog();
+                                    location.reload();
                                 },
                             });
                         }else{
