@@ -1,138 +1,3 @@
-{{--<div class="form-row">
-    <div class="card bg-gradient-white card-indicadores offset-md-3 col-md-6 col-sm-12 col-xs-12">
-        <div class="card-body">
-            <div class="form-row">
-                <div class="col-md-4 col-sm-4 col-xs-12 text-center align-self-center">
-                    <img src="{{asset('img/rentabilidad.png')}}">
-                </div>
-                <div class="col-md-4 col-sm-4 col-xs-12 text-center align-self-center">
-                    <p class="font-weight-bold mb-1"> Rentabilidad / m<small>2</small> Año</p>
-                    <p class="text-green-dashboard font-weight-bold mb-1"> $24.35 (4 meses) </p>
-                    <p class="text-green-dashboard font-weight-bold mb-1"> $23.75 (1 Año)</p>
-                </div>
-                <div class="col-md-4 col-sm-4 col-xs-12 align-self-center text-center">
-                    <buttom class="btn btn-dashboard">Indicadores</buttom>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="form-row">
-    <div class="col-md-6 col-sm-12 col-xs-12 mt-3 mb-3">
-        <div class="card bg-gradient-white card-indicadores ">
-            <div class="card-body">
-                <div class="form-row">
-                    <div class="col-md-4 col-sm-6 col-xs-12 text-center align-self-center">
-                        <img src="{{asset('img/ventas.png')}}">
-                    </div>
-                    <div class="col-md-4 col-sm-6 col-xs-12 text-center align-self-center">
-                        <p class="font-weight-bold mb-1"> Ventas / m<small>2</small> Año</p>
-                        <p class="text-red-dashboard font-weight-bold mb-1"> $24.35 (4 meses) </p>
-                        <p class="text-red-dashboard font-weight-bold mb-1"> $23.75 (1 Año)</p>
-                    </div>
-                    <div class="col-md-4 col-sm-6 col-xs-12 align-self-center text-center">
-                        <buttom class="btn btn-dashboard">Indicadores</buttom>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-6 col-sm-12 col-xs-12 mt-3 mb-3">
-        <div class="card bg-gradient-white card-indicadores">
-            <div class="card-body">
-                <div class="form-row">
-                    <div class="col-md-4 col-sm-6 col-xs-12 text-center align-self-center">
-                        <img src="{{asset('img/costo.png')}}">
-                    </div>
-                    <div class="col-md-4 col-sm-6 col-xs-12 text-center align-self-center">
-                        <p class="font-weight-bold mb-1"> Rentabilidad / m<small>2</small> Año</p>
-                        <p class="text-green-dashboard font-weight-bold mb-1"> $24.35 (4 meses) </p>
-                        <p class="text-green-dashboard font-weight-bold mb-1"> $23.75 (1 Año)</p>
-                    </div>
-                    <div class="col-md-4 col-sm-6 col-xs-12 align-self-center text-center">
-                        <buttom class="btn btn-dashboard">Indicadores</buttom>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="form-row">
-    <div class="col-md-6 col-sm-12 col-xs-12">
-        <div class="form-row">
-            <div class="col-md-6 col-sm-6 col-xs-12">
-                <div class="card bg-gradient-white card-indicadores">
-                    <div class="card-body">
-                        <div class="form-row">
-                            <div class="align-self-center">
-                                <p class="mb-1 text-orange-dashboard font-weight-bold">Precio $2.79</p>
-                                <p class="mb-1 text-red-dashboard font-weight-bold">Productividad 11.36</p>
-                                <p class="mb-1 text-red-dashboard font-weight-bold">Calibre 10.16</p>
-                                <p class="mb-1 text-red-dashboard font-weight-bold">Tallo m2: 32.60</p>
-                                <p class="mb-1 text-orange-dashboard font-weight-bold">Ciclo 116.43</p>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="card-footer footer-card-dashboard ">Indicadores clave</div>
-                </div>
-            </div>
-            <div class="col-md-6 col-sm-6 col-xs-12">
-                <div class="card bg-gradient-white card-indicadores">
-                    <div class="card-body">
-                        <div class="form-row">
-                            <div class="align-self-center">
-                                <p class="mb-1 text-orange-dashboard font-weight-bold">Precio $2.79</p>
-                                <p class="mb-1 text-red-dashboard font-weight-bold">Productividad 11.36</p>
-                                <p class="mb-1 text-red-dashboard font-weight-bold">Calibre 10.16</p>
-                                <p class="mb-1 text-red-dashboard font-weight-bold">Tallo m2: 32.60</p>
-                                <p class="mb-1 text-orange-dashboard font-weight-bold">Ciclo 116.43</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-footer footer-card-dashboard ">Indicadores clave</div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-6 col-sm-12 col-xs-12">
-        <div class="form-row">
-            <div class="col-md-6 col-sm-6 col-xs-12">
-                <div class="card bg-gradient-white card-indicadores">
-                    <div class="card-body">
-                        <div class="form-row">
-                            <div class="align-self-center">
-                                <p class="mb-1 text-orange-dashboard font-weight-bold">Precio $2.79</p>
-                                <p class="mb-1 text-red-dashboard font-weight-bold">Productividad 11.36</p>
-                                <p class="mb-1 text-red-dashboard font-weight-bold">Calibre 10.16</p>
-                                <p class="mb-1 text-red-dashboard font-weight-bold">Tallo m2: 32.60</p>
-                                <p class="mb-1 text-orange-dashboard font-weight-bold">Ciclo 116.43</p>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="card-footer footer-card-dashboard ">Indicadores clave</div>
-                </div>
-            </div>
-            <div class="col-md-6 col-sm-6 col-xs-12">
-                <div class="card bg-gradient-white card-indicadores">
-                    <div class="card-body">
-                        <div class="form-row">
-                            <div class="align-self-center">
-                                <p class="mb-1 text-orange-dashboard font-weight-bold">Precio $2.79</p>
-                                <p class="mb-1 text-red-dashboard font-weight-bold">Productividad 11.36</p>
-                                <p class="mb-1 text-red-dashboard font-weight-bold">Calibre 10.16</p>
-                                <p class="mb-1 text-red-dashboard font-weight-bold">Tallo m2: 32.60</p>
-                                <p class="mb-1 text-orange-dashboard font-weight-bold">Ciclo 116.43</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-footer footer-card-dashboard ">Indicadores clave</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>--}}
 <div class="row">
     <div class="col-12 font-weight-bold " style="font-size: 1.5rem">Indicadores <small>(Promedio últimas 4 semanas)</small></div>
     <div class="card bg-gradient-white card-indicadores col-md col-sm-6 text-center ml-md-2 mr-md-2 ml-sm-0 mr-sm-0"
@@ -164,10 +29,10 @@
         <span class="mt-3 nombre_indicador">Precio ramo</span>
         <hr class="w-75 p-0" style="margin: 0 auto;" />
         <span class="font-weight-bold " >
-            <span class="numero-indicador">{{number_format(($promIndicadoresFinca->dinero/$promIndicadoresFinca->ramos),2)}}</span><small>(Finca)</small>
+            <span class="numero-indicador">{{$promIndicadoresFinca->ramos > 0 ? (number_format(($promIndicadoresFinca->dinero/$promIndicadoresFinca->ramos),2)) : 0}}</span><small>(Finca)</small>
         </span>
-        <small>Promedio: <b>{{number_format(($indicadores->dinero/$indicadores->ramos),2)}}</b></small>
-        <small>Mejor: <b>{{number_format(($indicadores->max_dinero/$indicadores->max_ramos),2)}}</b></small>
+        <small>Promedio: <b>{{$indicadores->ramos > 0 ? (number_format(($indicadores->dinero/$indicadores->ramos),2)) : 0}}</b></small>
+        <small>Mejor: <b>{{$indicadores->max_ramos >0 ? (number_format(($indicadores->max_dinero/$indicadores->max_ramos),2)) : 0}}</b></small>
         <span style="color:#00B388"> Ver mas <i class="far fa-arrow-alt-circle-right"></i></span>
     </div>
     <div class="card bg-gradient-white card-indicadores col-md col-sm-6 text-center ml-md-2 mr-md-2 ml-sm-0 mr-sm-0"
@@ -186,10 +51,10 @@
         <span class="mt-3 nombre_indicador">Productividad</span>
         <hr class="w-75 p-0" style="margin: 0 auto;" />
         <span class="font-weight-bold " >
-            <span class="numero-indicador">{{number_format((($promIndicadoresFinca->ramos/$promIndicadoresFinca->area)*$promIndicadoresFinca->ciclo_anno),2)}}</span><small>(Finca)</small>
+            <span class="numero-indicador">{{$promIndicadoresFinca->area > 0 ? (number_format((($promIndicadoresFinca->ramos/$promIndicadoresFinca->area)*$promIndicadoresFinca->ciclo_anno),2)) : 0}}</span><small>(Finca)</small>
         </span>
-        <small>Promedio: <b>{{number_format((($indicadores->ramos/$indicadores->area)*$indicadores->ciclo_anno),2)}}</b></small>
-        <small>Mejor: <b>{{number_format((($indicadores->max_ramos/$indicadores->max_area)*$indicadores->max_ciclo_anno),2)}}</b></small>
+        <small>Promedio: <b>{{$indicadores->area > 0 ? (number_format((($indicadores->ramos/$indicadores->area)*$indicadores->ciclo_anno),2)) : 0}}</b></small>
+        <small>Mejor: <b>{{$indicadores->max_area >0 ? (number_format((($indicadores->max_ramos/$indicadores->max_area)*$indicadores->max_ciclo_anno),2)) : 0}}</b></small>
         <span style="color:#00B388"> Ver mas <i class="far fa-arrow-alt-circle-right"></i></span>
     </div>
     <div class="card bg-gradient-white card-indicadores col-md col-sm-6 offset-sm-3 offset-md-0 text-center ml-md-2 mr-md-2 ml-sm-0 mr-sm-0"
@@ -302,33 +167,33 @@
             <div class="col-md-4">
                 <div class="card mt-4">
                     <div class="card shadow text-center bg-green-card-dashboard p-2" >
-                        <i class="far fa-calendar-alt"> <span style="font-family: sans-serif;">Semana {{$ultimaSemanaIndicador->semana}}</span></i>
+                        <i class="far fa-calendar-alt"> <span style="font-family: sans-serif;">Semana {{isset($ultimaSemanaIndicador) ? $ultimaSemanaIndicador->semana : ''}}</span></i>
                     </div>
                     <div class="mt-3 p-3">
                         <table class="w-100 font-weight-bold ">
                             <tr>
                                 <td>Calibre</td>
-                                <td class="text-center">{{number_format($ultimaSemanaIndicador->calibre,2)}}</td>
+                                <td class="text-center">{{isset($ultimaSemanaIndicador) ? (number_format($ultimaSemanaIndicador->calibre,2)) : 0}}</td>
                             </tr>
                             <tr>
                                 <td>Ciclo</td>
-                                <td class="text-center">{{number_format($ultimaSemanaIndicador->ciclo,2)}}</td>
+                                <td class="text-center">{{isset($ultimaSemanaIndicador) ? (number_format($ultimaSemanaIndicador->ciclo,2))  : 0}}</td>
                             </tr>
                             <tr>
                                 <td>Precio ramo</td>
-                                <td class="text-center">{{$ultimaSemanaIndicador->ramos > 0 ? number_format($ultimaSemanaIndicador->venta/$ultimaSemanaIndicador->ramos,2) : 0}}</td>
+                                <td class="text-center">{{isset($ultimaSemanaIndicador) ? ($ultimaSemanaIndicador->ramos > 0 ? number_format($ultimaSemanaIndicador->venta/$ultimaSemanaIndicador->ramos,2) : 0) : 0}}</td>
                             </tr>
                             <tr>
                                 <td>Precio tallo</td>
-                                <td class="text-center">{{number_format($ultimaSemanaIndicador->precio_tallo,2)}}</td>
+                                <td class="text-center">{{isset($ultimaSemanaIndicador) ? number_format($ultimaSemanaIndicador->precio_tallo,2) : 0}}</td>
                             </tr>
                             <tr>
                                 <td>Productividad</td>
-                                <td class="text-center">{{$ultimaSemanaIndicador->area > 0 ? number_format(($ultimaSemanaIndicador->ramos/$ultimaSemanaIndicador->area)*$ultimaSemanaIndicador->ciclo_anno,2) :0}}</td>
+                                <td class="text-center">{{isset($ultimaSemanaIndicador) ? ($ultimaSemanaIndicador->area > 0 ? number_format(($ultimaSemanaIndicador->ramos/$ultimaSemanaIndicador->area)*$ultimaSemanaIndicador->ciclo_anno,2) :0) : 0}}</td>
                             </tr>
                             <tr>
                                 <td>Tallos x m<sup>2</sup></td>
-                                <td class="text-center">{{number_format($ultimaSemanaIndicador->tallos_m_cuadrado,2)}}</td>
+                                <td class="text-center">{{isset($ultimaSemanaIndicador) ? (number_format($ultimaSemanaIndicador->tallos_m_cuadrado,2)) : 0}}</td>
                             </tr>
                         </table>
                     </div>

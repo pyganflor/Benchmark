@@ -1,8 +1,8 @@
 <div class="chart">
     <canvas id="lineChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
 </div>
+@isset($datos['semanas'])
 <script src="{{asset('js/Chart.min.js')}}"></script>
-
 <script>
     var label = '{{json_encode($datos['semanas'])}}';
     label = JSON.parse(label.replace(/&quot;/g,'"'));
@@ -94,3 +94,4 @@
         options: lineChartOptions
     });
 </script>
+@endisset
