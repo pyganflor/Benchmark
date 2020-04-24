@@ -49,19 +49,32 @@
             url: '{{url('benchmark/options_variedades')}}',
             type: 'GET',
             data : {
-                id_planta : this.value
+                id_planta : $("#id_planta").val()
             },
             success: function(response){
                 $.each(response,function(i,j){
                     $("select#id_variedad").append("<option class='option_dinamic' value='"+j.id_variedad+"'>"+j.nombre+"</option>");
                 });
+                indicador_grafico();
             }
         }).always(function(){
             load(false);
         });
     }
-    /*$("#planta_dashboard").change(function () {
 
-    });*/
+    function indicador_grafico(){
+        data={
+            url : '{{url('indicadores/grafica')}}',
+            type : 'GET',
+            id  : 'div_grafica',
+            datos :{
+                indicador : $("#indicador").val(),
+                id_variedad : $("#id_variedad").val(),
+                desde : $("#desde").val(),
+                hasta : $("#hasta").val()
+            }
+        };
+        load_view(data)
+    }
 
 </script>

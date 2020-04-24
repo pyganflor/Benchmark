@@ -23,14 +23,14 @@ class DashboardController extends Controller
         $promIndicadores = DatosFinca::where('id_usuario',session('id_usuario'))
                                 ->whereIn('semana',$ultimasCuatroSemanas)
                                 ->select(
-                                    DB::raw('avg(tallos/area) as tallos_m_cuadrado'),
-                                    DB::raw('avg(venta/tallos) as precio_tallo'),
-                                    DB::raw('avg(365/ciclo_anno) as ciclo'),
-                                    DB::raw('avg(tallos/calibre) as ramos'),
-                                    DB::raw('avg(venta) as dinero'),
-                                    DB::raw('avg(calibre) as calibre'),
-                                    DB::raw('avg(area) as area'),
-                                    DB::raw('avg(ciclo_anno) as ciclo_anno')
+                                    DB::raw('AVG(tallos/area) as tallos_m_cuadrado'),
+                                    DB::raw('AVG(venta/tallos) as precio_tallo'),
+                                    DB::raw('AVG(365/ciclo_anno) as ciclo'),
+                                    DB::raw('AVG(tallos/calibre) as ramos'),
+                                    DB::raw('AVG(venta) as dinero'),
+                                    DB::raw('AVG(calibre) as calibre'),
+                                    DB::raw('AVG(area) as area'),
+                                    DB::raw('AVG(ciclo_anno) as ciclo_anno')
                                 )->first();
 
         $ultimaSemanaIndicador = DatosFinca::where([
@@ -46,7 +46,8 @@ class DashboardController extends Controller
         return view('dashboard.partials.indicadores',[
             'promIndicadores' => $promIndicadores,
             'ultimaSemanaIndicador' => $ultimaSemanaIndicador,
-            'semanas'=> DatosFinca::select('semana')->orderBy('semana','desc')->distinct()->get(),
+            'semanas'=> DatosFinca::where('id_usuario',session('id_usuario'))->select('semana')
+                            ->orderBy('semana','desc')->distinct()->get(),
             'plantas' => VariedadUsuario::where([
                 ['variedad_usuario.id_usuario',session('id_usuario')],
                 ['variedad_usuario.estado',true]
@@ -84,6 +85,86 @@ class DashboardController extends Controller
 
         return view('dashboard.partials.tabla_indicador',[
             'data' => $datos
+        ]);
+    }
+
+    public function grafica(Request $request){
+
+        $objDatosFinca = DatosFinca::whereBetween('semana',[$request->desde,$request->hasta])->get();
+        $datos=[];
+        $arrData = [];
+
+        if ($request->indicador == 1) {
+            foreach ($objDatosFinca as $data)
+                $arrData[$data->semana][]=$data->calibre;
+        }elseif ($request->indicador == 2) {
+            foreach ($objDatosFinca as $data)
+                $arrData[$data->semana][]= 365/$data->ciclo_anno;
+        }elseif ($request->indicador == 3) {
+            foreach ($objDatosFinca as $data){
+                $ramos = $data->tallos/$data->calibre;
+                $arrData[$data->semana][]=$data->venta/$ramos;
+            }
+        }elseif ($request->indicador == 4) {
+            foreach ($objDatosFinca as $data){
+                $arrData[$data->semana][]=$data->venta/$data->tallos;
+            }
+        }elseif ($request->indicador == 5) {
+            foreach ($objDatosFinca as $data){
+                $ramos = $data->tallos / $data->calibre;
+                $arrData[$data->semana][]= number_format((($ramos / $data->area) * $data->ciclo_anno), 2);
+            }
+        }elseif ($request->indicador == 6) {
+            foreach ($objDatosFinca as $data)
+                $arrData[$data->semana][]= number_format(($data->tallos / $data->area), 2);
+        }
+
+        foreach ($arrData as $semana => $item) {
+            $datos['prom'][] = number_format((array_sum($item)/count($item)),2);
+            $datos['max'][] = number_format(max($item),2);
+        }
+        /*foreach ($objDatosFinca as $d) {
+            $datos['semanas'][] = 'Semana ' . $d->semana;
+            if ($request->indicador == 1) {
+                $datos['promedio'][] = $d->calibre;
+            } else if ($request->indicador == 2) {
+                $datos['promedio'][] = number_format((365 / $d->ciclo_anno), 2);
+            } else if ($request->indicador == 3) {
+                $ramos = $d->tallos / $d->calibre;
+                $datos['promedio'][] = number_format(($d->venta / $ramos), 2);
+            } else if ($request->indicador == 4) {
+                $datos['promedio'][] = number_format(($d->venta / $d->tallos), 2);
+            } else if ($request->indicador == 5) {
+                $ramos = $d->tallos / $d->calibre;
+                $datos['promedio'][] = number_format((($ramos / $d->area) * $d->ciclo_anno), 2);
+            } else if ($request->indicador == 6) {
+                $datos['promedio'][] = number_format(($d->tallos / $d->area), 2);
+            }
+        }*/
+
+        //Se agrega el dato de la finca
+        $objDatosFinca = $objDatosFinca->where('id_usuario',session('id_usuario'));
+        foreach ($objDatosFinca as $d) {
+            $datos['semanas'][] = 'Semana ' . $d->semana;
+            if ($request->indicador == 1) {
+                $datos['finca'][] = $d->calibre;
+            } else if ($request->indicador == 2) {
+                $datos['finca'][] = number_format((365 / $d->ciclo_anno), 2);
+            } else if ($request->indicador == 3) {
+                $ramos = $d->tallos / $d->calibre;
+                $datos['finca'][] = number_format(($d->venta / $ramos), 2);
+            } else if ($request->indicador == 4) {
+                $datos['finca'][] = number_format(($d->venta / $d->tallos), 2);
+            } else if ($request->indicador == 5) {
+                $ramos = $d->tallos / $d->calibre;
+                $datos['finca'][] = number_format((($ramos / $d->area) * $d->ciclo_anno), 2);
+            } else if ($request->indicador == 6) {
+                $datos['finca'][] = number_format(($d->tallos / $d->area), 2);
+            }
+        }
+
+        return view('dashboard.partials.graficas',[
+            'datos' => $datos
         ]);
     }
 

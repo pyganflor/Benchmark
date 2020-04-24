@@ -202,7 +202,7 @@
                             </span>
                             </div>
                             <select class="select-custom form-control form-control-sm all-round font-weight-bold"
-                                    style="margin-left: 35px;">
+                                    style="margin-left: 35px;" id="indicador">
                                 <option value="1">Calibre</option>
                                 <option value="2">Ciclo</option>
                                 <option value="3">Precio ramo</option>
@@ -221,7 +221,7 @@
                             </span>
                             </div>
                             <select class="select-custom form-control form-control-sm all-round font-weight-bold"
-                                    style="margin-left: 25px;" onchange="planta_dashboard()">
+                                    style="margin-left: 25px;" onchange="planta_dashboard()" id="id_planta">
                                 @foreach($plantas as $planta)
                                 <option value="{{$planta->id_planta}}">{{$planta->nombre}}</option>
                                     @endforeach
@@ -235,8 +235,8 @@
                                 Variedad
                             </span>
                             </div>
-                            <select class="select-custom form-control form-control-sm all-round font-weight-bold ml-5"
-                                    id="id_variedad">
+                            <select class="select-custom form-control form-control-sm all-round font-weight-bold"
+                                    id="id_variedad" style="margin-left: 30px;">
                             </select>
                         </div>
                     </div>
@@ -247,7 +247,8 @@
                                 Desde
                             </span>
                             </div>
-                            <select class="select-custom form-control form-control-sm all-round font-weight-bold ml-5">
+                            <select class="select-custom form-control form-control-sm all-round font-weight-bold"
+                                    style="margin-left: 35px;" id="desde">
                                 @foreach($semanas as $x =>  $semana)
                                     <option {{count($semanas) <= 8 ? (($x+1)==count($semanas) ? 'selected':'') : (count($semanas)-4) == ($x+1) ? 'selected' : ''}}
                                             value="{{$semana->semana}}">{{$semana->semana}}</option>
@@ -262,7 +263,8 @@
                                 Hasta
                             </span>
                             </div>
-                            <select class="select-custom form-control form-control-sm all-round font-weight-bold ml-5">
+                            <select class="select-custom form-control form-control-sm all-round font-weight-bold"
+                                    style="margin-left: 35px;" id="hasta">
                                 @foreach($semanas as $x => $semana)
                                     <option {{$x==0 ? 'selected' : ''}}
                                             value="{{$semana->semana}}">{{$semana->semana}}</option>
@@ -271,7 +273,8 @@
                         </div>
                     </div>
                     <div class="col-md-1 col-sm-6 mt-2 mb-2 text-center">
-                        <button type="button" class="btn btn-sm btn-green-custom bnt-round p-1">
+                        <button type="button" class="btn btn-sm btn-green-custom bnt-round p-1"
+                                onclick="indicador_grafico()">
                             Buscar <i class="fas fa-search"></i>
                         </button>
                     </div>
@@ -319,5 +322,5 @@
     </div>
 </div>
 <script>
-    planta_dashboard()
+    planta_dashboard();
 </script>

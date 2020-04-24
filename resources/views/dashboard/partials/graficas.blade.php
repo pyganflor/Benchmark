@@ -3,8 +3,20 @@
 </div>
 <script src="{{asset('js/Chart.min.js')}}"></script>
 <script>
+    var label = '{{json_encode($datos['semanas'])}}';
+    label = JSON.parse(label.replace(/&quot;/g,'"'));
+
+    var finca = '{{json_encode($datos['finca'])}}';
+    finca = JSON.parse(finca.replace(/&quot;/g,'"'));
+
+    var promedio = '{{json_encode($datos['prom'])}}';
+    promedio = JSON.parse(promedio.replace(/&quot;/g,'"'));
+
+    var maximo = '{{json_encode($datos['max'])}}';
+    maximo = JSON.parse(maximo.replace(/&quot;/g,'"'));
+
     var areaChartData = {
-        labels  : ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        labels  : label,
         datasets: [
             {
                 label               : 'Finca',
@@ -16,7 +28,7 @@
                 pointBackgroundColor: '#00b388',
                 pointHighlightFill  : '#fff',
                 pointHighlightStroke: '#00b388',
-                data                : [28, 48, 40, 19, 86, 27, 90]
+                data                : finca
             },
             {
                 label               : 'Promedio',
@@ -27,7 +39,7 @@
                 pointStrokeColor    : '#0083b3',
                 pointHighlightFill  : '#fff',
                 pointHighlightStroke: '#0083b3',
-                data                : [65, 59, 80, 81, 100, 55, 40]
+                data                : promedio
             },
             {
                 label               : 'El mejor',
@@ -38,7 +50,7 @@
                 pointStrokeColor    : '#7500b3',
                 pointHighlightFill  : '#fff',
                 pointHighlightStroke: '#7500b3',
-                data                : [12, 30, 50, 40, 54, 67, 80]
+                data                : maximo
             }
         ]
     }

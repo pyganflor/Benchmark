@@ -166,7 +166,8 @@ class BenchmarkController extends Controller
     public function cargaManual(){
         return view('benchmark.partials.carga_datos_manual',[
             'plantas'=> Planta::where('estado',1)->select('id_planta','nombre')->get(),
-            'semanas'=> DatosFinca::select('semana')->orderBy('semana','desc')->distinct()->get()
+            'semanas'=> DatosFinca::where('id_usuario',session('id_usuario'))->select('semana')
+                            ->orderBy('semana','desc')->distinct()->get()
         ]);
     }
 
