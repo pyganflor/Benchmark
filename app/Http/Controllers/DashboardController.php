@@ -43,7 +43,6 @@ class DashboardController extends Controller
                 DB::raw('AVG(calibre) as calibre'),
                 DB::raw('AVG(area) as area'),
                 DB::raw('AVG(ciclo_anno) as ciclo_anno'),
-
                 DB::raw('MAX(calibre) as max_calibre'),
                 DB::raw('MAX(365/ciclo_anno) as max_ciclo'),
                 DB::raw('MAX(tallos/calibre) as max_ramos'),
@@ -72,7 +71,8 @@ class DashboardController extends Controller
                             ->orderBy('semana','desc')->distinct()->get(),
             'plantas' => VariedadUsuario::where([
                 ['variedad_usuario.id_usuario',session('id_usuario')],
-                ['variedad_usuario.estado',true]
+                ['variedad_usuario.estado',true],
+                ['df.id_usuario',session('id_usuario')]
             ])->join('variedad as v','variedad_usuario.id_variedad','v.id_variedad')
                 ->join('planta as p','v.id_planta','p.id_planta')
                 ->join('datos_finca as df','v.id_variedad','df.id_variedad')

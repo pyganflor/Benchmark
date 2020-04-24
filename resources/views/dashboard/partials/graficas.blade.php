@@ -2,6 +2,7 @@
     <canvas id="lineChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
 </div>
 <script src="{{asset('js/Chart.min.js')}}"></script>
+
 <script>
     var label = '{{json_encode($datos['semanas'])}}';
     label = JSON.parse(label.replace(/&quot;/g,'"'));
