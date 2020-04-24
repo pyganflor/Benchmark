@@ -31,7 +31,7 @@
         data = {
             url : '{{url('indicadores/vista_indicador')}}',
             method : 'GET',
-            title : 'Indicador'+tipo_indicador,
+            title : 'Indicador finca'+tipo_indicador,
             col : 'col-md-6',
             titleClass : 'title-modal-in-view',
             iconTitle : 'fas fa-table',

@@ -134,12 +134,16 @@
     </div>
 </div>--}}
 <div class="row">
-    <div class="col-12 font-weight-bold " style="font-size: 1.5rem">Indicadores</div>
+    <div class="col-12 font-weight-bold " style="font-size: 1.5rem">Indicadores <small>(Promedio últimas 4 semanas)</small></div>
     <div class="card bg-gradient-white card-indicadores col-md col-sm-6 text-center ml-md-2 mr-md-2 ml-sm-0 mr-sm-0"
          onclick="indicador(1)">
         <span class="mt-3 nombre_indicador">Calibre</span>
         <hr class="w-75 p-0" style="margin: 0 auto;" />
-        <span class="font-weight-bold " ><span class="numero-indicador">{{number_format($promIndicadores->calibre,2)}}</span></span><br/>
+        <span class="font-weight-bold " >
+            <span class="numero-indicador">{{number_format($promIndicadoresFinca->calibre,2)}}</span><small>(Finca)</small>
+        </span>
+        <small>Promedio: <b>{{number_format($indicadores->calibre,2)}}</b></small>
+        <small>Mejor: <b>{{number_format($indicadores->max_calibre,2)}}</b></small>
         <span style="color:#00B388" >
             Ver mas <i class="far fa-arrow-alt-circle-right"></i>
         </span>
@@ -149,8 +153,10 @@
         <span class="mt-3 nombre_indicador">Ciclo</span>
         <hr class="w-75 p-0" style="margin: 0 auto;" />
         <span class="font-weight-bold " >
-            <span class="numero-indicador">{{number_format($promIndicadores->ciclo,2)}}</span>
-        </span><br/>
+            <span class="numero-indicador">{{number_format($promIndicadoresFinca->ciclo,2)}}</span><small>(Finca)</small>
+        </span>
+        <small>Promedio:  <b>{{number_format($indicadores->ciclo,2)}}</b></small>
+        <small>Mejor: <b>{{number_format($indicadores->max_ciclo,2)}}</b></small>
         <span style="color:#00B388"> Ver mas <i class="far fa-arrow-alt-circle-right"></i></span>
     </div>
     <div class="card bg-gradient-white card-indicadores col-md col-sm-6 text-center ml-md-2 mr-md-2 ml-sm-0 mr-sm-0"
@@ -158,15 +164,21 @@
         <span class="mt-3 nombre_indicador">Precio ramo</span>
         <hr class="w-75 p-0" style="margin: 0 auto;" />
         <span class="font-weight-bold " >
-            <span class="numero-indicador">{{number_format(($promIndicadores->dinero/$promIndicadores->ramos),2)}}</span>
-        </span><br/>
+            <span class="numero-indicador">{{number_format(($promIndicadoresFinca->dinero/$promIndicadoresFinca->ramos),2)}}</span><small>(Finca)</small>
+        </span>
+        <small>Promedio: <b>{{number_format(($indicadores->dinero/$indicadores->ramos),2)}}</b></small>
+        <small>Mejor: <b>{{number_format(($indicadores->max_dinero/$indicadores->max_ramos),2)}}</b></small>
         <span style="color:#00B388"> Ver mas <i class="far fa-arrow-alt-circle-right"></i></span>
     </div>
     <div class="card bg-gradient-white card-indicadores col-md col-sm-6 text-center ml-md-2 mr-md-2 ml-sm-0 mr-sm-0"
          onclick="indicador(4)">
         <span class="mt-3 nombre_indicador">Precio tallo</span>
         <hr class="w-75 p-0" style="margin: 0 auto;" />
-        <span class="font-weight-bold " ><span class="numero-indicador">{{number_format($promIndicadores->precio_tallo,2)}}</span></span><br/>
+        <span class="font-weight-bold " >
+            <span class="numero-indicador">{{number_format($promIndicadoresFinca->precio_tallo,2)}}</span><small>(Finca)</small>
+        </span>
+        <small>Promedio: <b>{{number_format(($indicadores->precio_tallo),2)}}</b></small>
+        <small>Mejor: <b>{{number_format(($indicadores->max_precio_tallo),2)}}</b></small>
         <span style="color:#00B388"> Ver mas <i class="far fa-arrow-alt-circle-right"></i></span>
     </div>
     <div class="card bg-gradient-white card-indicadores col-md col-sm-6 offset-sm-3 offset-md-0 text-center ml-md-2 mr-md-2 ml-sm-0 mr-sm-0"
@@ -174,8 +186,10 @@
         <span class="mt-3 nombre_indicador">Productividad</span>
         <hr class="w-75 p-0" style="margin: 0 auto;" />
         <span class="font-weight-bold " >
-            <span class="numero-indicador">{{number_format((($promIndicadores->ramos/$promIndicadores->area)*$promIndicadores->ciclo_anno),2)}}</span>
-        </span><br/>
+            <span class="numero-indicador">{{number_format((($promIndicadoresFinca->ramos/$promIndicadoresFinca->area)*$promIndicadoresFinca->ciclo_anno),2)}}</span><small>(Finca)</small>
+        </span>
+        <small>Promedio: <b>{{number_format((($indicadores->ramos/$indicadores->area)*$indicadores->ciclo_anno),2)}}</b></small>
+        <small>Mejor: <b>{{number_format((($indicadores->max_ramos/$indicadores->max_area)*$indicadores->max_ciclo_anno),2)}}</b></small>
         <span style="color:#00B388"> Ver mas <i class="far fa-arrow-alt-circle-right"></i></span>
     </div>
     <div class="card bg-gradient-white card-indicadores col-md col-sm-6 offset-sm-3 offset-md-0 text-center ml-md-2 mr-md-2 ml-sm-0 mr-sm-0"
@@ -183,8 +197,10 @@
         <span class="mt-3 nombre_indicador">Tallos x m<sup>2</sup></span>
         <hr class="w-75 p-0" style="margin: 0 auto;" />
         <span class="font-weight-bold " >
-            <span class="numero-indicador">{{number_format($promIndicadores->tallos_m_cuadrado,2)}}</span>
-        </span><br/>
+            <span class="numero-indicador">{{number_format($promIndicadoresFinca->tallos_m_cuadrado,2)}}</span><small>(Finca)</small>
+        </span>
+        <small>Promedio: <b>{{number_format($indicadores->tallos_m_cuadrado,2)}}</b></small>
+        <small>Mejor: <b>{{number_format($indicadores->max_tallos_m_cuadrado,2)}}</b></small>
         <span style="color:#00B388"> Ver mas <i class="far fa-arrow-alt-circle-right"></i></span>
     </div>
 </div>
