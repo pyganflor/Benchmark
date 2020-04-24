@@ -177,6 +177,7 @@ class BenchmarkController extends Controller
             ['variedad.estado',1],
             ['vu.id_usuario',session('id_usuario')]
         ])->join('variedad_usuario as vu','variedad.id_variedad','vu.id_variedad')
+            ->join('datos_finca as df','variedad.id_variedad','df.id_variedad')
             ->select('variedad.id_variedad','variedad.nombre')->distinct()->get();
     }
 

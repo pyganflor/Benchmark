@@ -53,6 +53,7 @@ class DashboardController extends Controller
                 ['variedad_usuario.estado',true]
             ])->join('variedad as v','variedad_usuario.id_variedad','v.id_variedad')
                 ->join('planta as p','v.id_planta','p.id_planta')
+                ->join('datos_finca as df','v.id_variedad','df.id_variedad')
                 ->select('p.id_planta','p.nombre')->distinct()->get()
         ]);
     }
@@ -90,7 +91,8 @@ class DashboardController extends Controller
 
     public function grafica(Request $request){
 
-        $objDatosFinca = DatosFinca::whereBetween('semana',[$request->desde,$request->hasta])->get();
+        $objDatosFinca = DatosFinca::whereBetween('semana',[$request->desde,$request->hasta])
+            ->where('id_variedad',$request->id_variedad)->get();
         $datos=[];
         $arrData = [];
 
@@ -123,24 +125,6 @@ class DashboardController extends Controller
             $datos['prom'][] = number_format((array_sum($item)/count($item)),2);
             $datos['max'][] = number_format(max($item),2);
         }
-        /*foreach ($objDatosFinca as $d) {
-            $datos['semanas'][] = 'Semana ' . $d->semana;
-            if ($request->indicador == 1) {
-                $datos['promedio'][] = $d->calibre;
-            } else if ($request->indicador == 2) {
-                $datos['promedio'][] = number_format((365 / $d->ciclo_anno), 2);
-            } else if ($request->indicador == 3) {
-                $ramos = $d->tallos / $d->calibre;
-                $datos['promedio'][] = number_format(($d->venta / $ramos), 2);
-            } else if ($request->indicador == 4) {
-                $datos['promedio'][] = number_format(($d->venta / $d->tallos), 2);
-            } else if ($request->indicador == 5) {
-                $ramos = $d->tallos / $d->calibre;
-                $datos['promedio'][] = number_format((($ramos / $d->area) * $d->ciclo_anno), 2);
-            } else if ($request->indicador == 6) {
-                $datos['promedio'][] = number_format(($d->tallos / $d->area), 2);
-            }
-        }*/
 
         //Se agrega el dato de la finca
         $objDatosFinca = $objDatosFinca->where('id_usuario',session('id_usuario'));
