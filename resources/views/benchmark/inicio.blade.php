@@ -20,6 +20,9 @@
                         id="btn_tabla" style="cursor: pointer">
                     <i class="fas fa-search"></i> Buscar
                 </buttom>
+                <buttom class="btn btn-sm btn-green-custom bnt-round m-1" style="cursor: pointer">
+                    <i class="far fa-file-excel"></i> Excel
+                </buttom>
             </div>
         </div>
     </div>

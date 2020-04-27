@@ -43,8 +43,8 @@ class DashboardController extends Controller
                 DB::raw('AVG(calibre) as calibre'),
                 DB::raw('AVG(area) as area'),
                 DB::raw('AVG(ciclo_anno) as ciclo_anno'),
-                DB::raw('MAX(calibre) as max_calibre'),
-                DB::raw('MAX(365/ciclo_anno) as max_ciclo'),
+                DB::raw('MIN(calibre) as min_calibre'),
+                DB::raw('MIN(365/ciclo_anno) as min_ciclo'),
                 DB::raw('MAX(tallos/calibre) as max_ramos'),
                 DB::raw('MAX(venta) as max_dinero'),
                 DB::raw('MAX(venta/tallos) as max_precio_tallo'),
@@ -143,15 +143,21 @@ class DashboardController extends Controller
                 $arrData[$data->semana][]= number_format(($data->tallos / $data->area), 2);
         }
 
+
         foreach ($arrData as $semana => $item) {
             $datos['prom'][] = number_format((array_sum($item)/count($item)),2);
-            $datos['max'][] = number_format(max($item),2);
+            if($request->indicador==1 || $request->indicador==2){
+                $datos['max'][] = number_format(min($item),2);
+            }else{
+                $datos['max'][] = number_format(max($item),2);
+            }
+            
         }
 
         //Se agrega el dato de la finca
         $objDatosFinca = $objDatosFinca->where('id_usuario',session('id_usuario'));
         foreach ($objDatosFinca as $d) {
-            $datos['semanas'][] = 'Semana ' . $d->semana;
+            $datos['semanas'][] = $d->semana;
             if ($request->indicador == 1) {
                 $datos['finca'][] = $d->calibre;
             } else if ($request->indicador == 2) {

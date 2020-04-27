@@ -7,4 +7,6 @@
     Route::get('benchmark/options_variedades','BenchmarkController@optionsVariedades');
     Route::post('benchmark/store_data_file','BenchmarkController@storeDataFile');
     Route::post('benchmark/store_data_manual','BenchmarkController@storeDataManual');
+    Route::get('benchmark/excel_dashboard','BenchmarkController@excelDashboard');
+
 

@@ -8,6 +8,8 @@ use App\Modelos\VariedadUsuario;
 use Illuminate\Http\Request;
 use App\Modelos\Planta;
 use App\Imports\DataExcel;
+use App\Exports\Dashboard;
+use Maatwebsite\Excel\Facades\Excel;
 use Carbon\Carbon;
 use Validator;
 
@@ -61,28 +63,6 @@ class BenchmarkController extends Controller
             //productividad
             $data['productividad'][$dsf->semana][] = $dsf->ciclo_anno*($ramos/$dsf->area);
 
-            /*$semanasPasadas = $this->cuatroSemanasPasadas($dsf->semana);
-            $sumRamos = 0;
-            $sumArea = 0;
-            $sumCicloAnno = 0;
-            $dataUsuarioSemana =[];
-            $dataFincaSemanaPasada = $objDatosFinca->whereIn('semana',$semanasPasadas);
-                $dataUsuarioSemana[$item->id_usuario][$item->semana]=[
-                    'tallos'=>$item->tallos,
-                    'calibre' =>$item->calibre,
-                    'ciclo_anno' => $item->ciclo_anno,
-                    'area' => $item->area
-                ];
-            }*/
-
-            /*foreach ($dataFincaSemanaPasada as $dfsp) {
-                $sumRamos += ($dfsp->tallos/$dfsp->calibre);
-                $sumArea+= $dfsp->area;
-                $sumCicloAnno += $dfsp->ciclo_anno;
-            }
-            $promCicloAnno = $sumCicloAnno/count($semanasPasadas);
-            dump('semana: '.$dsf->semana.' promciclo:'.$promCicloAnno. ' sumRamos: '.$sumRamos.' sumArea: '.$sumArea.' total: '.$promCicloAnno*($sumRamos/$sumArea) );
-            $data['productividad'][$dsf->semana][] = $promCicloAnno*($sumRamos/$sumArea);/*$dsf->calibre> 0 ? $dsf->ciclo_anno*($ramos/$dsf->calibre) : 0;*/
         }
 
         //SE OBTIENE EL MÁXIMO Y EL PROMEDIO
@@ -96,7 +76,7 @@ class BenchmarkController extends Controller
             $datos['precio_ramo'][$semana]['prom'] = array_sum($data['precio_ramo'][$semana])/count($data['precio_ramo'][$semana]);
 
             //ciclo
-            $datos['ciclo'][$semana]['max'] = max($data['ciclo'][$semana]);
+            $datos['ciclo'][$semana]['max'] = min($data['ciclo'][$semana]);
             $datos['ciclo'][$semana]['prom'] = array_sum($data['ciclo'][$semana])/count($data['ciclo'][$semana]);
 
             //tallos x mt2
@@ -104,11 +84,10 @@ class BenchmarkController extends Controller
             $datos['tallos_x_mts2'][$semana]['prom'] = array_sum($data['tallos_x_mts2'][$semana])/count($data['tallos_x_mts2'][$semana]);
 
             //calibre
-            $datos['calibre'][$semana]['max'] = max($data['calibre'][$semana]);
+            $datos['calibre'][$semana]['max'] = min($data['calibre'][$semana]);
             $datos['calibre'][$semana]['prom'] = array_sum($data['calibre'][$semana])/count($data['calibre'][$semana]);
 
             //productividad
-            //dump($data['productividad'][$semana]);
             $datos['productividad'][$semana]['max'] = max($data['productividad'][$semana]);
             $datos['productividad'][$semana]['prom'] = array_sum($data['productividad'][$semana])/count($data['productividad'][$semana]);
         }
@@ -136,19 +115,6 @@ class BenchmarkController extends Controller
             //productividad
             $datos['productividad'][$df->semana]['finca'] = $df->calibre > 0 ? $df->ciclo_anno*($ramos/$df->area) : 0;
 
-            /*$semanasPasadas = $this->cuatroSemanasPasadas($df->semana);
-            $sumRamos = 0;
-            $sumArea = 0;
-            $sumCicloAnno = 0;
-            $dataFincaSemanaPasada = $datoFinca->whereIn('semana',$semanasPasadas);
-            foreach ($dataFincaSemanaPasada as $dfsp) {
-                $sumRamos += ($dfsp->tallos/$dfsp->calibre);
-                $sumArea+= $dfsp->area;
-                $sumCicloAnno += $dfsp->ciclo_anno;
-            }
-            $promCicloAnno = $sumCicloAnno/count($semanasPasadas);
-
-            $datos['productividad'][$df->semana]['finca'] = $promCicloAnno*($sumRamos/$sumArea);*/
 
         }
 
@@ -327,5 +293,10 @@ class BenchmarkController extends Controller
     public function cuatroSemanasPasadas($semana){
         return DatosFinca::where('semana','<=',$semana)->orderBy('semana','desc')
             ->select('semana')->distinct()->take(4)->pluck('semana');
+    }
+
+    public function excelDashboard(Request $request){
+
+        return Excel::download(new Dashboard, 'Dashboard.xlsx');
     }
 }
