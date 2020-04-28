@@ -63,6 +63,7 @@
     }
 
     function indicador_grafico(){
+        $("#btn_descarga_grafica").addClass('d-none');
         data={
             url : '{{url('indicadores/grafica')}}',
             type : 'GET',

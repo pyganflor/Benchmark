@@ -296,7 +296,6 @@ class BenchmarkController extends Controller
     }
 
     public function excelDashboard(Request $request){
-
-        return Excel::download(new Dashboard, 'Dashboard.xlsx');
+        return Excel::download(new Dashboard($request), 'Dashboard.xlsx');
     }
 }

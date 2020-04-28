@@ -5,18 +5,30 @@ namespace App\Exports;
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromView;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
+use Maatwebsite\Excel\Concerns\WithDrawings;
+use PhpOffice\PhpSpreadsheet\Worksheet\Drawing;
 use App\Http\Controllers\DashboardController;
 use \App\Modelos\DatosFinca;
 use Illuminate\Support\Facades\DB;
+use App\Charts\GraficoDashboard;
 
-class Dashboard implements FromView, ShouldAutoSize
+class Dashboard implements FromView, ShouldAutoSize, WithDrawings
 {
     /**
     * @return \Illuminate\Support\Collection
     */
+
+    public function __construct($data)
+    {
+        $this->indicador = $data->indicador;
+        $this->id_variedad = $data->id_variedad;
+        $this->desde = $data->desde;
+        $this->hasta = $data->hasta;
+        $this->img_b64 = $data->img_b64;
+    }
+
     public function view(): View
     {
-
         $dashboardControlles = new DashboardController;
         $ultimasCuatroSemanas = $dashboardControlles->ultimas4Semanas();
 
@@ -68,7 +80,25 @@ class Dashboard implements FromView, ShouldAutoSize
         return view('dashboard.partials.excel_dashboard', [
             'promIndicadoresFinca' => $promIndicadoresFinca,
             'indicadores' => $indicadores,
-            'ultimaSemanaIndicador' => $ultimaSemanaIndicador
+            'ultimaSemanaIndicador' => $ultimaSemanaIndicador,
         ]);
     }
+
+    public function drawings()
+    {
+        $img = str_replace('data:image/png;base64,','',$this->img_b64);
+        $file = base64_decode($img);
+        $fileName = 'grafico_dashboard.png';
+        file_put_contents(public_path('img/'.$fileName),$file);
+
+        $drawing = new Drawing();
+        $drawing->setName('Logo');
+        $drawing->setDescription('Logo gráfico');
+        $drawing->setPath(public_path('img/grafico_dashboard.png'));
+        $drawing->setHeight(300);
+        $drawing->setCoordinates('B9');
+
+        return $drawing;
+    }
+
 }

@@ -93,5 +93,15 @@
             data: lineChartData,
             options: lineChartOptions
         });
+
+        $(function(){
+            setTimeout(function(){
+                $('#img_b64').val(document.getElementById('lineChart').toDataURL());
+                $("#btn_descarga_grafica").removeClass('d-none');
+            },1000);
+        });
+
+
     </script>
+
 @endisset

@@ -74,7 +74,7 @@
     <tr><td colspan="27" rowspan="2"></td></tr>
     <tr>
         <td></td>
-        <td colspan="12" rowspan="15"></td>
+        <td colspan="12" rowspan="13"></td>
         <td></td>
         <td colspan="4" style="font-size: 16px;text-align:center;">
             <b>Semana {{isset($ultimaSemanaIndicador) ? $ultimaSemanaIndicador->semana : ''}}</b>
