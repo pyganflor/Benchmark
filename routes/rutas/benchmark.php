@@ -8,5 +8,6 @@
     Route::post('benchmark/store_data_file','BenchmarkController@storeDataFile');
     Route::post('benchmark/store_data_manual','BenchmarkController@storeDataManual');
     Route::post('benchmark/excel_dashboard','BenchmarkController@excelDashboard');
+    Route::post('benchmark/excel_tabla','BenchmarkController@excelTabla');
 
 
