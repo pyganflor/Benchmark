@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Modelos\Planta;
 use App\Imports\DataExcel;
 use App\Exports\Dashboard;
+use App\Exports\Tabla;
 use Maatwebsite\Excel\Facades\Excel;
 use Carbon\Carbon;
 use Validator;
@@ -42,7 +43,6 @@ class BenchmarkController extends Controller
                 $semanas[]=$semana->semana;
         }
 
-        $data =[];
         foreach($objDatosFinca as $dsf){
             //precio_tallo
             $data['precio_tallo'][$dsf->semana][]= $dsf->venta/$dsf->tallos;
@@ -119,6 +119,7 @@ class BenchmarkController extends Controller
         }
 
         sort($semanas);
+
         return view('benchmark.partials.tabla_datos',[
             'datos' => $datos,
             'semanas' => $semanas
@@ -297,5 +298,9 @@ class BenchmarkController extends Controller
 
     public function excelDashboard(Request $request){
         return Excel::download(new Dashboard($request), 'Dashboard.xlsx');
+    }
+
+    public function excelTabla(Request $request){
+        return Excel::download(new Tabla($request), 'Tabla Benchmark.xlsx');
     }
 }

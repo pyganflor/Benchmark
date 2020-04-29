@@ -10,7 +10,6 @@ use PhpOffice\PhpSpreadsheet\Worksheet\Drawing;
 use App\Http\Controllers\DashboardController;
 use \App\Modelos\DatosFinca;
 use Illuminate\Support\Facades\DB;
-use App\Charts\GraficoDashboard;
 
 class Dashboard implements FromView, ShouldAutoSize, WithDrawings
 {
