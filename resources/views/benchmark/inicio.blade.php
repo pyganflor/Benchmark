@@ -33,8 +33,8 @@
             <div class="card-header">
                 <h3 class="card-title w-65">
                     <div class="form-row">
-                        <div class="col-md-3 col-sm-6 mt-2 mt-md-0">
-                                <label class="label" style="font-size:15px">Planta</label>
+                        <div class="col-md-3 col-m-6 mt-2 mt-md-0">
+                                <label class="label style="font-size:15px">Planta</label>
                                 <div class="input-group-prepend">
                                 <span class="input-group-text bg-silver-dark-custom all-round icon-select-custom-dashboard">
                                    <i class="fas fa-seedling"></i>
@@ -70,7 +70,8 @@
                             <select class="select-custom form-control form-control-sm all-round font-weight-bold"
                                     id="desde" name="desde">
                                 @foreach($semanas as $x =>  $semana)
-                                    <option {{count($semanas) <= 8 ? (($x+1)==count($semanas) ? 'selected':'') : (count($semanas)-4) == ($x+1) ? 'selected' : ''}}value="{{$semana->semana}}">{{$semana->semana}}</option>
+                                    <option {{count($semanas) <= 8 ? (($x+1)==count($semanas) ? 'selected':'') : (count($semanas)-4) == ($x+1) ? 'selected' : ''}}
+                                            value="{{$semana->semana}}">{{$semana->semana}}</option>
                                 @endforeach
                             </select>
                         </div>
