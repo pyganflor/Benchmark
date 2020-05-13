@@ -61,7 +61,7 @@
                             </select>
                         </div>
                         <div class="col-md-3 col-sm-6 mt-2 mt-md-0">
-                            <label class="label"  style="font-size:15px">Desde</label>
+                            <label class="label"  style="font-size:15px">Desde1</label>
                             <div class="input-group-prepend">
                                 <span class="input-group-text bg-silver-dark-custom all-round icon-select-custom-dashboard">
                                     <i class="far fa-calendar-alt"></i>
